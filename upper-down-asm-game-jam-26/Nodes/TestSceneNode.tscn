@@ -1,3 +1,48 @@
 [gd_scene format=3 uid="uid://0vtw8ertsoxb"]
 
-[node name="Node2D" type="Node2D" unique_id=291866959]
+[ext_resource type="SpriteFrames" uid="uid://ql0oexf2gx3w" path="res://Resources/Animations/testFrames.tres" id="1_a4tu3"]
+[ext_resource type="Script" uid="uid://s4rx8jhuenbw" path="res://Nodes/PlayerControllerTest.gd" id="1_kqi73"]
+[ext_resource type="Texture2D" uid="uid://c5yotr2r82kh0" path="res://Resources/Graphics/AreaTileBricksDarkBlue02.png" id="3_nsp04"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6lpcg"]
+radius = 18.0
+height = 57.999996
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6lpcg"]
+size = Vector2(31.399998, 31.2)
+
+[node name="MainTest" type="Node2D" unique_id=587167177]
+
+[node name="PlayerTest" type="CharacterBody2D" parent="." unique_id=527931659]
+position = Vector2(487, 329)
+script = ExtResource("1_kqi73")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerTest" unique_id=1335716304]
+texture_filter = 3
+position = Vector2(0, -42)
+scale = Vector2(3, 3.218)
+sprite_frames = ExtResource("1_a4tu3")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTest" unique_id=186620489]
+position = Vector2(0, -16)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_6lpcg")
+
+[node name="LevelDesign" type="Node" parent="." unique_id=755895222]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LevelDesign" unique_id=226891289]
+position = Vector2(521, 464)
+scale = Vector2(5, 5)
+disable_mode = 1
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelDesign/StaticBody2D" unique_id=572618578]
+position = Vector2(-0.09999275, 0.40000153)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_6lpcg")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelDesign/StaticBody2D" unique_id=1205494610]
+texture_filter = 3
+texture_repeat = 2
+texture = ExtResource("3_nsp04")

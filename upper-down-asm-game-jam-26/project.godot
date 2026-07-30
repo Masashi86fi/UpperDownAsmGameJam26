@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="UpperDown ASM Game Jam 26"
+run/main_scene="uid://dxvmjtl6ov83c"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

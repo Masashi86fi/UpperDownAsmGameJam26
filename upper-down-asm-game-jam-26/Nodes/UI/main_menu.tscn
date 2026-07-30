@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dxvmjtl6ov83c"]
+
+[ext_resource type="Texture2D" uid="uid://c5yotr2r82kh0" path="res://Resources/Graphics/AreaTileBricksDarkBlue02.png" id="1_cyn2r"]
+[ext_resource type="Script" uid="uid://dxeu7ej47gg55" path="res://Nodes/UI/main_menu.gd" id="1_p7ljc"]
+
+[sub_resource type="SystemFont" id="SystemFont_6lpcg"]
+font_names = PackedStringArray("Living Hell")
+
+[sub_resource type="SystemFont" id="SystemFont_g4ydp"]
+font_names = PackedStringArray("Impact")
+
+[node name="MainMenu" type="Control" unique_id=1228632281]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p7ljc")
+
+[node name="BGRect" type="TextureRect" parent="." unique_id=1133284652]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cyn2r")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=207691783]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=862988671]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=392458928]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1159724077]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 456
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = SubResource("SystemFont_6lpcg")
+theme_override_font_sizes/font_size = 128
+text = "Upper Down"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1114642848]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1531323374]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=864829717]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.083322085, 5.896017e-06, 0.39399457, 1)
+theme_override_colors/font_pressed_color = Color(0.003068191, 0.14230815, 0.6638987, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = SubResource("SystemFont_g4ydp")
+theme_override_font_sizes/font_size = 64
+text = "Start"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=752441168]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.083322085, 5.896017e-06, 0.39399457, 1)
+theme_override_colors/font_pressed_color = Color(0.003068191, 0.14230815, 0.6638987, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = SubResource("SystemFont_g4ydp")
+theme_override_font_sizes/font_size = 64
+text = "Exit"
