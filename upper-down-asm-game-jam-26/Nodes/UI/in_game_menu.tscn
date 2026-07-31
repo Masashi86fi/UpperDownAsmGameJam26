@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://cuf1q7j1pa4bm"]
+
+[ext_resource type="Script" uid="uid://bmwbmbxyp4cr5" path="res://Nodes/UI/in_game_menu.gd" id="1_2xpe7"]
+[ext_resource type="Texture2D" uid="uid://c5yotr2r82kh0" path="res://Resources/Graphics/AreaTileBricksDarkBlue02.png" id="1_pmh3o"]
+
+[node name="InGameMenu" type="Control" unique_id=1626614383]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2xpe7")
+
+[node name="Pause Menu BG" type="TextureRect" parent="." unique_id=1497965122]
+modulate = Color(0.42288277, 0.4228828, 0.4228828, 1)
+texture_filter = 1
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -324.0
+offset_right = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pmh3o")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1731318393]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 310.0
+offset_top = 43.0
+offset_right = -303.0
+offset_bottom = -485.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1630425994]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1987739047]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Pause Menu"
+horizontal_alignment = 1
+
+[node name="ButtonMargin" type="MarginContainer" parent="." unique_id=526203196]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 251.0
+offset_top = -405.0
+offset_right = -247.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonMargin" unique_id=1110544011]
+layout_mode = 2
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="ButtonMargin/VBoxContainer" unique_id=1383880377]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Continue"
+
+[node name="MainMenuButton" type="Button" parent="ButtonMargin/VBoxContainer" unique_id=1130866485]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Main Menu"
+
+[node name="ExitGameButton" type="Button" parent="ButtonMargin/VBoxContainer" unique_id=261078370]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Exit"

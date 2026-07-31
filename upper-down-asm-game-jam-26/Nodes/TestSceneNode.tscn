@@ -3,6 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://ql0oexf2gx3w" path="res://Resources/Animations/testFrames.tres" id="1_a4tu3"]
 [ext_resource type="Script" uid="uid://s4rx8jhuenbw" path="res://Nodes/PlayerControllerTest.gd" id="1_kqi73"]
 [ext_resource type="Texture2D" uid="uid://c5yotr2r82kh0" path="res://Resources/Graphics/AreaTileBricksDarkBlue02.png" id="3_nsp04"]
+[ext_resource type="PackedScene" uid="uid://cuf1q7j1pa4bm" path="res://Nodes/UI/in_game_menu.tscn" id="4_jjeup"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6lpcg"]
 radius = 18.0
@@ -46,3 +47,9 @@ shape = SubResource("RectangleShape2D_6lpcg")
 texture_filter = 3
 texture_repeat = 2
 texture = ExtResource("3_nsp04")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=881887417]
+
+[node name="InGameMenu" parent="CanvasLayer" unique_id=1626614383 instance=ExtResource("4_jjeup")]
+size_flags_horizontal = 3
+size_flags_vertical = 3
