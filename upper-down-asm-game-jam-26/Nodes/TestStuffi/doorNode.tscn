@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://duno5folwue22"]
+
+[ext_resource type="Script" uid="uid://dn55slrbaxs0x" path="res://Nodes/TestStuffi/door.gd" id="1_0cyeu"]
+[ext_resource type="Texture2D" uid="uid://digth438efsft" path="res://Resources/Graphics/testMarioBlockGround.png" id="2_0ucb2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydtrf"]
+size = Vector2(120, 240)
+
+[node name="Door" type="Control" unique_id=1308346134]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 43.0
+offset_top = -1.0
+offset_right = 83.0
+offset_bottom = 39.0
+script = ExtResource("1_0cyeu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=716443681]
+position = Vector2(926, 204)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1102256224]
+scale = Vector2(0.1, 0.20166662)
+texture = ExtResource("2_0ucb2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1950024823]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_ydtrf")

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bdxqmk3ggqmtf"]
+
+[ext_resource type="Script" uid="uid://ca10mo6mumqrx" path="res://Nodes/TestStuffi/keyholeTrigger.gd" id="1_ob2ji"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfahj"]
+size = Vector2(130, 128)
+
+[node name="KeyholeTrigger" type="Area2D" unique_id=1728277272 node_paths=PackedStringArray("doorReference")]
+script = ExtResource("1_ob2ji")
+doorReference = NodePath("")
+itemRequired = "Key"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=837753963]
+shape = SubResource("RectangleShape2D_xfahj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

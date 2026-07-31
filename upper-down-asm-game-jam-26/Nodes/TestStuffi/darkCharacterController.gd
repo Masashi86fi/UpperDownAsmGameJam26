@@ -37,6 +37,9 @@ func _physics_process(delta):
 			velocity.x = direction * acceleration
 		else:
 			velocity.x = move_toward(velocity.x, 0, deceleration)
+	else:
+		if velocity.x != 0:
+			velocity.x = move_toward(velocity.x, 0, deceleration)
 	
 	#if activeCharacter:
 	#	var direction = Input.get_axis("Left", "Right")
