@@ -13,6 +13,9 @@ size = Vector2(120, 240)
 
 [node name="Main" type="Node2D" unique_id=2023976824]
 
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=639450018]
+color = Color(0.3590688, 0.35906926, 0.35906887, 0.972549)
+
 [node name="Level" type="Node2D" parent="." unique_id=1508670684]
 
 [node name="RoomDemo" parent="Level" unique_id=1580834023 instance=ExtResource("1_kpcsv")]
@@ -49,33 +52,43 @@ scale = Vector2(0.33333334, -0.33333334)
 doorReference = NodePath("../../../RoomDemo/Door")
 
 [node name="Player" parent="." unique_id=191039957 instance=ExtResource("5_pgvy0")]
-position = Vector2(0, 207)
+position = Vector2(559, 342)
 scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
 
 [node name="LightSprite" parent="Player/LightPlayer" parent_id_path=PackedInt32Array(191039957, 1462959315) index="0" unique_id=1684322389]
 scale = Vector2(2, 2)
 
 [node name="CollisionShape2D" parent="Player/LightPlayer" parent_id_path=PackedInt32Array(191039957, 1462959315) index="1" unique_id=1962381053]
-position = Vector2(9.200003, 5.8)
+position = Vector2(0, 1.4999971)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/DarkPlayer" parent_id_path=PackedInt32Array(191039957, 1537752864) index="0" unique_id=1660764252]
-position = Vector2(10.799995, -10.200001)
-scale = Vector2(0.6, 0.6)
+[node name="DarkPlayer" parent="Player" index="1" unique_id=1537752864]
+position = Vector2(8, 430)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/DarkPlayer" index="0" unique_id=1660764252]
+position = Vector2(0, 5)
+scale = Vector2(0.3, 0.3)
 sprite_frames = ExtResource("6_divhs")
 animation = &"idle"
 
-[node name="DarkSprite" parent="Player/DarkPlayer" parent_id_path=PackedInt32Array(191039957, 1537752864) index="1" unique_id=1106344889]
+[node name="CurrentItem2" type="Sprite2D" parent="Player/DarkPlayer/AnimatedSprite2D" unique_id=279558880]
+visible = false
+position = Vector2(-77.33331, 10.6666565)
+scale = Vector2(0.03333333, 0.03333333)
+
+[node name="DarkSprite" parent="Player/DarkPlayer" index="1" unique_id=1106344889]
 visible = false
 
 [node name="CurrentItem" parent="Player/DarkPlayer/DarkSprite" index="0" unique_id=747600886]
 visible = false
 
-[node name="CollisionShape2D" parent="Player/DarkPlayer" parent_id_path=PackedInt32Array(191039957, 1537752864) index="2" unique_id=326632727]
-position = Vector2(10.800001, 8.999998)
+[node name="CollisionShape2D" parent="Player/DarkPlayer" index="2" unique_id=326632727]
+position = Vector2(0, 9)
 
 [node name="Camera2D" parent="Player" index="2" unique_id=555690143]
+position = Vector2(228, -192)
 scale = Vector2(3, 3)
-zoom = Vector2(2, 2)
+zoom = Vector2(1, 1)
 
 [node name="Ghost" type="Node2D" parent="." unique_id=611432385]
 

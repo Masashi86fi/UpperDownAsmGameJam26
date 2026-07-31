@@ -5,9 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://dhaev7o8q24q0" path="res://Resources/Graphics/AngelTest.png" id="3_63n12"]
 [ext_resource type="Texture2D" uid="uid://cy0xf3bfss2dk" path="res://Resources/Graphics/HumanVariant01.png" id="3_jysgi"]
 [ext_resource type="Script" uid="uid://djngir2nloevi" path="res://Nodes/TestStuffi/darkCharacterController.gd" id="4_3haui"]
+[ext_resource type="Gradient" uid="uid://bdlakp2u6p30a" path="res://Resources/Graphics/reversed.tres" id="4_63n12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqixm"]
 size = Vector2(13.799995, 15.6)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o70oy"]
+gradient = ExtResource("4_63n12")
+fill = 1
+fill_from = Vector2(0.52, 0.5)
+fill_to = Vector2(0.64, 0.96)
 
 [node name="Player" type="Node2D" unique_id=191039957 node_paths=PackedStringArray("lightCharacter", "darkCharacter")]
 script = ExtResource("1_y2ysq")
@@ -15,8 +22,8 @@ lightCharacter = NodePath("LightPlayer")
 darkCharacter = NodePath("DarkPlayer")
 
 [node name="LightPlayer" type="CharacterBody2D" parent="." unique_id=1462959315]
-position = Vector2(334, 161)
-scale = Vector2(5, 5)
+position = Vector2(0, -8)
+scale = Vector2(8, 8)
 script = ExtResource("2_jysgi")
 acceleration = 400
 deceleration = 350
@@ -25,23 +32,30 @@ jump_force = 540
 
 [node name="LightSprite" type="Sprite2D" parent="LightPlayer" unique_id=1684322389]
 texture_filter = 1
-position = Vector2(10, -18.400002)
+position = Vector2(0, -23)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_jysgi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightPlayer" unique_id=1962381053]
-position = Vector2(8.000003, -1.9999993)
+position = Vector2(0, -6)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_mqixm")
 
+[node name="PointLight2D" type="PointLight2D" parent="LightPlayer" unique_id=1254722859]
+position = Vector2(0, -29.8)
+scale = Vector2(1.484375, 1.3125)
+color = Color(0.7921569, 0.8235294, 0.81960785, 1)
+texture = SubResource("GradientTexture2D_o70oy")
+
 [node name="DarkPlayer" type="CharacterBody2D" parent="." unique_id=1537752864]
-position = Vector2(552, 649)
+texture_filter = 1
+position = Vector2(7, 574)
 rotation = 3.1415927
-scale = Vector2(5, 5)
+scale = Vector2(8, 8)
 script = ExtResource("4_3haui")
 
 [node name="DarkSprite" type="Sprite2D" parent="DarkPlayer" unique_id=1106344889]
-position = Vector2(10, -10)
+position = Vector2(0, -10)
 texture = ExtResource("3_63n12")
 
 [node name="CurrentItem" type="Sprite2D" parent="DarkPlayer/DarkSprite" unique_id=747600886]
@@ -49,8 +63,16 @@ position = Vector2(-12.4, 3.000001)
 scale = Vector2(0.01, 0.01)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DarkPlayer" unique_id=326632727]
-position = Vector2(11, -8.5)
 shape = SubResource("RectangleShape2D_mqixm")
+
+[node name="PointLight2D2" type="PointLight2D" parent="DarkPlayer" unique_id=1249737409]
+position = Vector2(0, -8.125)
+rotation = 3.1415925
+scale = Vector2(1.4843749, 1.3124999)
+color = Color(0.45206752, 0.5534661, 0.7473163, 1)
+shadow_enabled = true
+shadow_filter_smooth = 4.7
+texture = SubResource("GradientTexture2D_o70oy")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=555690143]
 position = Vector2(225, 133)
