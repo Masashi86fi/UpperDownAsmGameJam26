@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://diw1uymw3ul30"]
 
 [ext_resource type="Script" uid="uid://b01xpudqunhn0" path="res://Nodes/TestStuffi/dialogueController.gd" id="1_e00dj"]
+[ext_resource type="Texture2D" uid="uid://digth438efsft" path="res://Resources/Graphics/testMarioBlockGround.png" id="2_138ii"]
 [ext_resource type="AudioStream" uid="uid://1ceuce2q6kga" path="res://Resources/Audio/voice_sans.mp3" id="2_xht10"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=557505117]
@@ -30,6 +31,33 @@ theme_override_constants/margin_right = 5
 layout_mode = 2
 text = "THIS IS MUH DIALOGUE BABYYY
 hepalla on nälkä"
+
+[node name="ItemPanel" type="Panel" parent="Control" unique_id=746901836]
+visible = false
+layout_mode = 0
+offset_left = 948.0
+offset_top = 10.0
+offset_right = 1132.0
+offset_bottom = 131.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ItemPanel" unique_id=553138645]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 84.0
+offset_right = 178.0
+offset_bottom = 116.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="ItemLabel" type="Label" parent="Control/ItemPanel/MarginContainer" unique_id=739868411]
+layout_mode = 2
+text = "-itemname-"
+horizontal_alignment = 1
+
+[node name="ItemSprite" type="Sprite2D" parent="Control/ItemPanel/MarginContainer" unique_id=1951121544]
+position = Vector2(85, -36)
+scale = Vector2(0.040416665, 0.040416665)
+texture = ExtResource("2_138ii")
 
 [node name="PanelRichLabel" type="Panel" parent="Control" unique_id=2130135331]
 visible = false

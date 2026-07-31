@@ -39,7 +39,7 @@ func _input(event):
 	if(Input.is_action_just_pressed("jump") and activeCharacter.is_on_floor()):
 		print("JUMP!")
 		activeCharacter._jump()
-	if(Input.is_action_just_pressed("textTest")):
+	if(Input.is_action_just_pressed("testText")):
 		Dialogue.show_dialogue(dialogue)
 	if(Input.is_action_just_pressed("skipDialogue")):
 		Dialogue.hide_message()

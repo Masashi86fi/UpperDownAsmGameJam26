@@ -37,7 +37,7 @@ offset_right = 83.0
 offset_bottom = 39.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground/Door" unique_id=202020476]
-position = Vector2(926, 204)
+position = Vector2(936, 204)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground/Door/StaticBody2D" unique_id=771240028]
 scale = Vector2(0.1, 0.20166662)
@@ -223,6 +223,12 @@ position = Vector2(552, 649)
 rotation = 3.1415927
 scale = Vector2(5, 5)
 script = ExtResource("8_8w2go")
+acceleration = null
+deceleration = null
+maxSpeed = null
+gravity = null
+jump_force = null
+activeCharacter = null
 
 [node name="DarkSprite" type="Sprite2D" parent="Player/DarkPlayer" unique_id=2072673145]
 position = Vector2(10, -10)
