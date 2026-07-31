@@ -3,7 +3,7 @@ extends Control
 
 @onready var start_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/StartButton as Button
 @onready var exit_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/ExitButton as Button
-const MAIN_MENU_THEME = preload("res://Resources/Audio/Music/Main_theme_Better_Mix.mp3")
+const MAIN_MENU_THEME = preload("res://Resources/Audio/Music/main_theme.ogg")
 
 @onready var start_level=preload("res://Nodes/TestSceneNode.tscn") as PackedScene
 
