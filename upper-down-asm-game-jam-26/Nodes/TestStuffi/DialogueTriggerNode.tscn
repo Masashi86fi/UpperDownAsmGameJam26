@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d2wskmawp7ls"]
+
+[ext_resource type="Script" uid="uid://ddmn0yph4jhnr" path="res://Nodes/TestStuffi/dialogueTrigger.gd" id="1_n3l00"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gckp2"]
+size = Vector2(65, 63)
+
+[node name="DialogueTrigger" type="Area2D" unique_id=1660729472]
+collision_layer = 2
+script = ExtResource("1_n3l00")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=80990794]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_gckp2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
