@@ -24,7 +24,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta * gravityDirection
 
 	if activeCharacter:
-		var direction = Input.get_axis("Left", "Right")
+		var direction = Input.get_axis("left", "right")
 		if direction != 0:
 			var targetSpeed = direction * maxSpeed
 			if sign(velocity.x) != sign(targetSpeed) and velocity.x != 0:

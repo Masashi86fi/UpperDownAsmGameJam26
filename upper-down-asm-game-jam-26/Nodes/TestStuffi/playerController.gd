@@ -28,7 +28,7 @@ func _ready():
 	
 
 func _input(event):
-	if event.is_action_pressed("Swap"):
+	if event.is_action_pressed("swap"):
 		if activeCharacter == lightCharacter:
 			activeCharacter = darkCharacter
 		else:
@@ -36,12 +36,12 @@ func _input(event):
 		print("Swapped to ",  activeCharacter)
 		lightCharacter._swap()
 		darkCharacter._swap()
-	if(Input.is_action_just_pressed("Jump") and activeCharacter.is_on_floor()):
+	if(Input.is_action_just_pressed("jump") and activeCharacter.is_on_floor()):
 		print("JUMP!")
 		activeCharacter._jump()
-	if(Input.is_action_just_pressed("TextTest")):
+	if(Input.is_action_just_pressed("textTest")):
 		Dialogue.show_dialogue(dialogue)
-	if(Input.is_action_just_pressed("SkipDialogue")):
+	if(Input.is_action_just_pressed("skipDialogue")):
 		Dialogue.hide_message()
 		
 func _process(_delta):
