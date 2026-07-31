@@ -1,3 +1,4 @@
+class_name LightSource
 extends Area2D
 
 @onready var collision = $CollisionShape2D
@@ -14,9 +15,5 @@ func _on_body_entered(body: CharacterBody2D):
 	if body.name == "DarkPlayer":
 		body.global_position = respawnPoint.global_position
 		
-func _toggleLight(state: bool):
-	if state:
-		collision.set_deferred("disabled", false)
-	else:
-		collision.set_deferred("disabled", true)
-		
+func _toggleLight():
+		collision.set_deferred("disabled", !collision.disabled)

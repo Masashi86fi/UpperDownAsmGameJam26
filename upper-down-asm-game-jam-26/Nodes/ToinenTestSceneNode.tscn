@@ -3,16 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://digth438efsft" path="res://Resources/Graphics/testMarioBlockGround.png" id="1_50gm7"]
 [ext_resource type="PackedScene" uid="uid://duno5folwue22" path="res://Nodes/TestStuffi/doorNode.tscn" id="1_sdw02"]
 [ext_resource type="Script" uid="uid://do0d5ec5xh75r" path="res://Nodes/TestStuffi/playerController.gd" id="2_gckp2"]
+[ext_resource type="PackedScene" uid="uid://xgj8ga1welih" path="res://Nodes/TestStuffi/pickupItemNode.tscn" id="2_sdw02"]
 [ext_resource type="Texture2D" uid="uid://c0ne17va5x3p0" path="res://icon.svg" id="2_wdca5"]
 [ext_resource type="PackedScene" uid="uid://d2wskmawp7ls" path="res://Nodes/TestStuffi/dialogueTriggerNode.tscn" id="3_wdca5"]
-[ext_resource type="Script" uid="uid://ck1iyjj67x7c0" path="res://Nodes/TestStuffi/pickupItem.gd" id="4_8w2go"]
 [ext_resource type="Texture2D" uid="uid://dhaev7o8q24q0" path="res://Resources/Graphics/AngelTest.png" id="4_wdca5"]
 [ext_resource type="Script" uid="uid://bd42p7b5q2fgu" path="res://Nodes/TestStuffi/lightCharacterController.gd" id="6_8w2go"]
 [ext_resource type="PackedScene" uid="uid://bdxqmk3ggqmtf" path="res://Nodes/TestStuffi/keyholetriggerNode.tscn" id="6_kktmi"]
 [ext_resource type="PackedScene" uid="uid://bu7cmvvdhv22m" path="res://Nodes/TestStuffi/lightTriggerNode.tscn" id="6_ydtrf"]
 [ext_resource type="Script" uid="uid://djngir2nloevi" path="res://Nodes/TestStuffi/darkCharacterController.gd" id="8_8w2go"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g34su"]
+[ext_resource type="PackedScene" uid="uid://8bmoegbialjn" path="res://Nodes/TestStuffi/lightSwitchNode.tscn" id="8_kktmi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1g2p"]
 size = Vector2(122, 121)
@@ -26,17 +25,8 @@ size = Vector2(28, 27)
 
 [node name="Door" parent="Ground" unique_id=1308346134 instance=ExtResource("1_sdw02")]
 
-[node name="PickupItem_Area2D" type="Area2D" parent="Ground" unique_id=692278700]
+[node name="PickupItem_Area2D" parent="Ground" unique_id=563655248 instance=ExtResource("2_sdw02")]
 position = Vector2(838, 528)
-scale = Vector2(0.060833335, 0.060833335)
-script = ExtResource("4_8w2go")
-itemName = "Key"
-
-[node name="ItemSprite" type="Sprite2D" parent="Ground/PickupItem_Area2D" unique_id=10887076]
-texture = ExtResource("1_50gm7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/PickupItem_Area2D" unique_id=1297276289]
-shape = SubResource("RectangleShape2D_g34su")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=763525790]
 position = Vector2(1167, 229)
@@ -182,13 +172,17 @@ texture = ExtResource("1_50gm7")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_t1g2p")
 
+[node name="LightSwitchTrigger" parent="Ground" unique_id=302541927 node_paths=PackedStringArray("lights") instance=ExtResource("8_kktmi")]
+position = Vector2(305, 242)
+lights = [NodePath("../LightTrigger")]
+
 [node name="Player" type="Node2D" parent="." unique_id=1497820935 node_paths=PackedStringArray("lightCharacter", "darkCharacter")]
 script = ExtResource("2_gckp2")
 lightCharacter = NodePath("LightPlayer")
 darkCharacter = NodePath("DarkPlayer")
 
 [node name="LightPlayer" type="CharacterBody2D" parent="Player" unique_id=2144826268]
-position = Vector2(334, 161)
+position = Vector2(480, 160)
 scale = Vector2(5, 5)
 script = ExtResource("6_8w2go")
 
@@ -222,5 +216,3 @@ shape = SubResource("RectangleShape2D_mqixm")
 position = Vector2(225, 133)
 scale = Vector2(5, 5)
 zoom = Vector2(0.5, 0.5)
-
-[connection signal="body_entered" from="Ground/PickupItem_Area2D" to="Ground/PickupItem_Area2D" method="_on_body_entered"]

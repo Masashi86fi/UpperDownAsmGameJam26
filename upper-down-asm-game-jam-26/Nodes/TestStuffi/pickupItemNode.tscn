@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://xgj8ga1welih"]
+
+[ext_resource type="Script" uid="uid://ck1iyjj67x7c0" path="res://Nodes/TestStuffi/pickupItem.gd" id="1_ahya3"]
+[ext_resource type="Texture2D" uid="uid://digth438efsft" path="res://Resources/Graphics/testMarioBlockGround.png" id="2_opgke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g34su"]
+
+[node name="PickupItem_Area2D" type="Area2D" unique_id=563655248]
+scale = Vector2(0.060833335, 0.060833335)
+script = ExtResource("1_ahya3")
+itemName = "Key"
+
+[node name="ItemSprite" type="Sprite2D" parent="." unique_id=1997599157]
+texture = ExtResource("2_opgke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=261941867]
+shape = SubResource("RectangleShape2D_g34su")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

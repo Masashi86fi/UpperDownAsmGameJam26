@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://8bmoegbialjn"]
+
+[ext_resource type="Script" uid="uid://bi6luu0t2fkha" path="res://Nodes/TestStuffi/lightSwitch.gd" id="1_r3t46"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kktmi"]
+radius = 83.15047
+
+[node name="LightSwitchTrigger" type="Area2D" unique_id=302541927 node_paths=PackedStringArray("lights")]
+script = ExtResource("1_r3t46")
+lights = [NodePath("")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=916979746]
+shape = SubResource("CircleShape2D_kktmi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=117978540]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
