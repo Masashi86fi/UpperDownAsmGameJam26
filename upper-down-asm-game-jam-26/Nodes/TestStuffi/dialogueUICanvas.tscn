@@ -33,6 +33,7 @@ text = "THIS IS MUH DIALOGUE BABYYY
 hepalla on nälkä"
 
 [node name="ItemPanel" type="Panel" parent="Control" unique_id=746901836]
+visible = false
 layout_mode = 0
 offset_left = 948.0
 offset_top = 10.0

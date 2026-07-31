@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var jump_force = 200
 @export var activeCharacter = false
 @onready var itemSprite = $DarkSprite/CurrentItem
-var currentItem
+var currentItem: String
 	
 func _jump():
 	if is_on_floor():
@@ -19,6 +19,10 @@ func _swap():
 func _pickupItem(sprite: Texture, item: String):
 	itemSprite.texture = sprite
 	currentItem = item
+	
+func _removeItem():
+	itemSprite.texture = null
+	currentItem = ""
 
 func _physics_process(delta):
 	up_direction = Vector2.UP * -1
