@@ -16,8 +16,8 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_left = 330.0
 offset_top = 22.0
-offset_right = 719.0
-offset_bottom = 100.0
+offset_right = 638.0
+offset_bottom = 194.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/PanelLabel" unique_id=476976999]
 layout_mode = 0
