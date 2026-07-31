@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://rjon7o6cr0k7"]
+
+[ext_resource type="Script" uid="uid://do0d5ec5xh75r" path="res://Nodes/TestStuffi/playerController.gd" id="1_y2ysq"]
+[ext_resource type="Script" uid="uid://bd42p7b5q2fgu" path="res://Nodes/TestStuffi/lightCharacterController.gd" id="2_jysgi"]
+[ext_resource type="Texture2D" uid="uid://dhaev7o8q24q0" path="res://Resources/Graphics/AngelTest.png" id="3_63n12"]
+[ext_resource type="Script" uid="uid://djngir2nloevi" path="res://Nodes/TestStuffi/darkCharacterController.gd" id="4_3haui"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqixm"]
+size = Vector2(28, 27)
+
+[node name="Player" type="Node2D" unique_id=191039957 node_paths=PackedStringArray("lightCharacter", "darkCharacter")]
+script = ExtResource("1_y2ysq")
+lightCharacter = NodePath("LightPlayer")
+darkCharacter = NodePath("DarkPlayer")
+
+[node name="LightPlayer" type="CharacterBody2D" parent="." unique_id=1462959315]
+position = Vector2(334, 161)
+scale = Vector2(5, 5)
+script = ExtResource("2_jysgi")
+
+[node name="LightSprite" type="Sprite2D" parent="LightPlayer" unique_id=1684322389]
+position = Vector2(10, -10)
+texture = ExtResource("3_63n12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightPlayer" unique_id=1962381053]
+position = Vector2(11, -8.5)
+shape = SubResource("RectangleShape2D_mqixm")
+
+[node name="DarkPlayer" type="CharacterBody2D" parent="." unique_id=1537752864]
+position = Vector2(552, 649)
+rotation = 3.1415927
+scale = Vector2(5, 5)
+script = ExtResource("4_3haui")
+
+[node name="DarkSprite" type="Sprite2D" parent="DarkPlayer" unique_id=1106344889]
+position = Vector2(10, -10)
+texture = ExtResource("3_63n12")
+
+[node name="CurrentItem" type="Sprite2D" parent="DarkPlayer/DarkSprite" unique_id=747600886]
+position = Vector2(-12.4, 3.000001)
+scale = Vector2(0.01, 0.01)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DarkPlayer" unique_id=326632727]
+position = Vector2(11, -8.5)
+shape = SubResource("RectangleShape2D_mqixm")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=555690143]
+position = Vector2(225, 133)
+scale = Vector2(5, 5)
+zoom = Vector2(0.5, 0.5)

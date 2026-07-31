@@ -1,5 +1,27 @@
 [gd_scene format=3 uid="uid://cxet8narhqa0h"]
 
+[ext_resource type="PackedScene" uid="uid://dqhlswp7xb4on" path="res://Resources/Graphics/room_demo.tscn" id="1_ex8j2"]
+[ext_resource type="PackedScene" uid="uid://rjon7o6cr0k7" path="res://Nodes/Character/player.tscn" id="2_xt4ah"]
+
 [node name="Main" type="Node2D" unique_id=2023976824]
 
 [node name="Level" type="Node2D" parent="." unique_id=1508670684]
+
+[node name="RoomDemo" parent="Level" unique_id=1580834023 instance=ExtResource("1_ex8j2")]
+position = Vector2(-2, 427)
+scale = Vector2(3, 3)
+
+[node name="FlippedWorld" type="Node2D" parent="Level" unique_id=1990846937]
+position = Vector2(-95, 799)
+scale = Vector2(1, -1)
+
+[node name="RoomDemo2" parent="Level/FlippedWorld" unique_id=276295471 instance=ExtResource("1_ex8j2")]
+position = Vector2(96, 371)
+scale = Vector2(3, 3)
+isDark = true
+
+[node name="Player" parent="." unique_id=191039957 instance=ExtResource("2_xt4ah")]
+position = Vector2(0, 207)
+scale = Vector2(0.5, 0.5)
+
+[editable path="Player"]

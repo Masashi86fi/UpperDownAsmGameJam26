@@ -29,10 +29,12 @@ size_flags_vertical = 3
 
 [node name="CanvasLayer2" parent="." unique_id=557505117 instance=ExtResource("5_0ee0v")]
 
-[node name="PlayerTest" parent="." unique_id=105621290 instance=ExtResource("1_0ee0v")]
+[node name="PlayerDeadAndAlive" type="Node2D" parent="." unique_id=906048506]
+
+[node name="PlayerTest" parent="PlayerDeadAndAlive" unique_id=105621290 instance=ExtResource("1_0ee0v")]
 top_level = true
 position = Vector2(671, 335)
 
-[node name="Camera2D" type="Camera2D" parent="PlayerTest" unique_id=1774990489]
+[node name="Camera2D" type="Camera2D" parent="PlayerDeadAndAlive/PlayerTest" unique_id=1774990489]
 position = Vector2(-6, -11)
 position_smoothing_enabled = true

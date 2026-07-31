@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://bs8mmfyfpjtt"]
 
 [ext_resource type="Texture2D" uid="uid://digth438efsft" path="res://Resources/Graphics/testMarioBlockGround.png" id="1_50gm7"]
-[ext_resource type="Script" uid="uid://do0d5ec5xh75r" path="res://Nodes/TestStuffi/playerController.gd" id="2_gckp2"]
 [ext_resource type="Texture2D" uid="uid://c0ne17va5x3p0" path="res://icon.svg" id="2_wdca5"]
 [ext_resource type="PackedScene" uid="uid://d2wskmawp7ls" path="res://Nodes/TestStuffi/DialogueTriggerNode.tscn" id="3_wdca5"]
 [ext_resource type="Script" uid="uid://ck1iyjj67x7c0" path="res://Nodes/TestStuffi/pickupItem.gd" id="4_8w2go"]
-[ext_resource type="Texture2D" uid="uid://dhaev7o8q24q0" path="res://Resources/Graphics/AngelTest.png" id="4_wdca5"]
 [ext_resource type="Script" uid="uid://ca10mo6mumqrx" path="res://Nodes/TestStuffi/keyholeTrigger.gd" id="5_3cjje"]
-[ext_resource type="Script" uid="uid://bd42p7b5q2fgu" path="res://Nodes/TestStuffi/lightCharacterController.gd" id="6_8w2go"]
-[ext_resource type="Script" uid="uid://djngir2nloevi" path="res://Nodes/TestStuffi/darkCharacterController.gd" id="8_8w2go"]
+[ext_resource type="PackedScene" uid="uid://rjon7o6cr0k7" path="res://Nodes/Character/player.tscn" id="6_w0y8m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydtrf"]
 size = Vector2(120, 240)
@@ -20,9 +17,6 @@ size = Vector2(122, 121)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfahj"]
 size = Vector2(130, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqixm"]
-size = Vector2(28, 27)
 
 [node name="Node2D" type="Node2D" unique_id=291866959]
 
@@ -200,46 +194,7 @@ dialogue = [{
 "text": "SPAM SPAM SPAM SPAM SPAM"
 }]
 
-[node name="Player" type="Node2D" parent="." unique_id=1497820935 node_paths=PackedStringArray("lightCharacter", "darkCharacter")]
-script = ExtResource("2_gckp2")
-lightCharacter = NodePath("LightPlayer")
-darkCharacter = NodePath("DarkPlayer")
-
-[node name="LightPlayer" type="CharacterBody2D" parent="Player" unique_id=2144826268]
-position = Vector2(334, 161)
-scale = Vector2(5, 5)
-script = ExtResource("6_8w2go")
-
-[node name="LightSprite" type="Sprite2D" parent="Player/LightPlayer" unique_id=1966061110]
-position = Vector2(10, -10)
-texture = ExtResource("4_wdca5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/LightPlayer" unique_id=1489624474]
-position = Vector2(11, -8.5)
-shape = SubResource("RectangleShape2D_mqixm")
-
-[node name="DarkPlayer" type="CharacterBody2D" parent="Player" unique_id=388940596]
-position = Vector2(552, 649)
-rotation = 3.1415927
-scale = Vector2(5, 5)
-script = ExtResource("8_8w2go")
-
-[node name="DarkSprite" type="Sprite2D" parent="Player/DarkPlayer" unique_id=2072673145]
-position = Vector2(10, -10)
-texture = ExtResource("4_wdca5")
-
-[node name="CurrentItem" type="Sprite2D" parent="Player/DarkPlayer/DarkSprite" unique_id=290112001]
-position = Vector2(-12.4, 3.000001)
-scale = Vector2(0.01, 0.01)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/DarkPlayer" unique_id=546184271]
-position = Vector2(11, -8.5)
-shape = SubResource("RectangleShape2D_mqixm")
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2065144925]
-position = Vector2(225, 133)
-scale = Vector2(5, 5)
-zoom = Vector2(0.5, 0.5)
+[node name="Player" parent="." unique_id=191039957 instance=ExtResource("6_w0y8m")]
 
 [connection signal="body_entered" from="Ground/PickupItem_Area2D" to="Ground/PickupItem_Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Ground/TestKeyHole/Area2D" to="Ground/TestKeyHole/Area2D" method="_on_body_entered"]
