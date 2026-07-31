@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dqhlswp7xb4on" path="res://Resources/Graphics/room_demo.tscn" id="1_ex8j2"]
 [ext_resource type="PackedScene" uid="uid://rjon7o6cr0k7" path="res://Nodes/Character/player.tscn" id="2_xt4ah"]
+[ext_resource type="SpriteFrames" uid="uid://ql0oexf2gx3w" path="res://Resources/Animations/testFrames.tres" id="3_xt4ah"]
+[ext_resource type="PackedScene" uid="uid://bqnjx857fx602" path="res://Resources/Audio/AudioManager.tscn" id="4_tg6ti"]
 
 [node name="Main" type="Node2D" unique_id=2023976824]
 
@@ -23,5 +25,35 @@ isDark = true
 [node name="Player" parent="." unique_id=191039957 instance=ExtResource("2_xt4ah")]
 position = Vector2(0, 207)
 scale = Vector2(0.5, 0.5)
+
+[node name="LightSprite" parent="Player/LightPlayer" parent_id_path=PackedInt32Array(191039957, 1462959315) index="0" unique_id=1684322389]
+texture_filter = 1
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" parent="Player/LightPlayer" parent_id_path=PackedInt32Array(191039957, 1462959315) index="1" unique_id=1962381053]
+position = Vector2(6.4000034, 10.2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/DarkPlayer" parent_id_path=PackedInt32Array(191039957, 1537752864) index="0" unique_id=1660764252]
+position = Vector2(10.799995, -10.200001)
+scale = Vector2(0.6, 0.6)
+sprite_frames = ExtResource("3_xt4ah")
+animation = &"idle"
+
+[node name="DarkSprite" parent="Player/DarkPlayer" parent_id_path=PackedInt32Array(191039957, 1537752864) index="1" unique_id=1106344889]
+visible = false
+
+[node name="CurrentItem" parent="Player/DarkPlayer/DarkSprite" index="0" unique_id=747600886]
+visible = false
+
+[node name="CollisionShape2D" parent="Player/DarkPlayer" parent_id_path=PackedInt32Array(191039957, 1537752864) index="2" unique_id=326632727]
+position = Vector2(10.800001, 8.999998)
+
+[node name="Camera2D" parent="Player" index="2" unique_id=555690143]
+scale = Vector2(3, 3)
+zoom = Vector2(2, 2)
+
+[node name="Ghost" type="Node2D" parent="." unique_id=611432385]
+
+[node name="AudioManager" parent="." unique_id=16757329 instance=ExtResource("4_tg6ti")]
 
 [editable path="Player"]

@@ -13,6 +13,8 @@ config_version=5
 config/name="UpperDown ASM Game Jam 26"
 run/main_scene="uid://dxvmjtl6ov83c"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0.3650881, 0.36508793, 0.3650879, 1)
+boot_splash/image="uid://c5yotr2r82kh0"
 config/icon="res://icon.svg"
 
 [audio]

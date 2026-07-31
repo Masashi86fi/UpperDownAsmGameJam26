@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://djngir2nloevi" path="res://Nodes/TestStuffi/darkCharacterController.gd" id="4_3haui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqixm"]
-size = Vector2(28, 27)
+size = Vector2(13.799995, 15.6)
 
 [node name="Player" type="Node2D" unique_id=191039957 node_paths=PackedStringArray("lightCharacter", "darkCharacter")]
 script = ExtResource("1_y2ysq")
@@ -23,7 +23,8 @@ position = Vector2(10, -10)
 texture = ExtResource("3_63n12")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightPlayer" unique_id=1962381053]
-position = Vector2(11, -8.5)
+position = Vector2(8.300003, -2.7999992)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_mqixm")
 
 [node name="DarkPlayer" type="CharacterBody2D" parent="." unique_id=1537752864]
