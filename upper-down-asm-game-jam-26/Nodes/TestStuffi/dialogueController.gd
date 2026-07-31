@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var audio = $Control/AudioStreamPlayer2D
 @onready var itemlabel = $Control/ItemPanel/MarginContainer/ItemLabel
 @onready var itemicon = $Control/ItemPanel/MarginContainer/ItemSprite
+@onready var itemPanel = $Control/ItemPanel
 var typing
 var dialog_id = 0
 
@@ -45,6 +46,14 @@ func write_message(text: String, textSpeed: float, delay: float,  current_id: in
 		
 	label.visible_characters = -1
 	await get_tree().create_timer(delay).timeout
+	
+func _addItem(item: String, icon: Texture):
+	itemlabel.text = item
+	itemicon.texture = icon
+	itemPanel.visible = true
+	
+func _hideItem():
+	itemPanel.visible = false
 
 func hide_message():
 	dialog_id += 1
