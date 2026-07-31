@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://diw1uymw3ul30"]
+
+[ext_resource type="Script" uid="uid://b01xpudqunhn0" path="res://Nodes/TestStuffi/dialogueController.gd" id="1_e00dj"]
+[ext_resource type="AudioStream" uid="uid://1ceuce2q6kga" path="res://Resources/Audio/voice_sans.mp3" id="2_xht10"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=557505117]
+script = ExtResource("1_e00dj")
+
+[node name="Control" type="Control" parent="." unique_id=483064090]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelLabel" type="Panel" parent="Control" unique_id=1388503824]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 22.0
+offset_right = 719.0
+offset_bottom = 100.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelLabel" unique_id=476976999]
+layout_mode = 0
+offset_right = 390.0
+offset_bottom = 78.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="DialogueLabel" type="Label" parent="Control/PanelLabel/MarginContainer" unique_id=1307351533]
+layout_mode = 2
+text = "THIS IS MUH DIALOGUE BABYYY
+hepalla on nälkä"
+
+[node name="PanelRichLabel" type="Panel" parent="Control" unique_id=2130135331]
+visible = false
+layout_mode = 0
+offset_left = 377.0
+offset_top = 178.0
+offset_right = 417.0
+offset_bottom = 218.0
+
+[node name="DialogueRichTextLabel" type="RichTextLabel" parent="Control/PanelRichLabel" unique_id=1327789386]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 40.0
+offset_right = 1046.0
+offset_bottom = 102.0
+theme_override_font_sizes/normal_font_size = 20
+text = "RICH BOI IS GOODI GOODI
+PRINGLES ON HYVÄÄ _)"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control" unique_id=1887084865]
+stream = ExtResource("2_xht10")
