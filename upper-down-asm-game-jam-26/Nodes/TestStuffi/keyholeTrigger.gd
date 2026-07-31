@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var collision = $CollisionShape2D
-@export var doorReference: Control
+@export var doorReference: Node2D
 @export var itemRequired: String
 
 func _on_body_entered(body):

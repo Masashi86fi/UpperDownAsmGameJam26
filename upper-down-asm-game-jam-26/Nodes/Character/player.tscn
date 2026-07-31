@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://do0d5ec5xh75r" path="res://Nodes/TestStuffi/playerController.gd" id="1_y2ysq"]
 [ext_resource type="Script" uid="uid://bd42p7b5q2fgu" path="res://Nodes/TestStuffi/lightCharacterController.gd" id="2_jysgi"]
 [ext_resource type="Texture2D" uid="uid://dhaev7o8q24q0" path="res://Resources/Graphics/AngelTest.png" id="3_63n12"]
+[ext_resource type="Texture2D" uid="uid://cy0xf3bfss2dk" path="res://Resources/Graphics/HumanVariant01.png" id="3_jysgi"]
 [ext_resource type="Script" uid="uid://djngir2nloevi" path="res://Nodes/TestStuffi/darkCharacterController.gd" id="4_3haui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqixm"]
@@ -17,13 +18,19 @@ darkCharacter = NodePath("DarkPlayer")
 position = Vector2(334, 161)
 scale = Vector2(5, 5)
 script = ExtResource("2_jysgi")
+acceleration = 400
+deceleration = 350
+gravity = 920
+jump_force = 540
 
 [node name="LightSprite" type="Sprite2D" parent="LightPlayer" unique_id=1684322389]
-position = Vector2(10, -10)
-texture = ExtResource("3_63n12")
+texture_filter = 1
+position = Vector2(10, -18.400002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_jysgi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightPlayer" unique_id=1962381053]
-position = Vector2(8.300003, -2.7999992)
+position = Vector2(8.000003, -1.9999993)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_mqixm")
 

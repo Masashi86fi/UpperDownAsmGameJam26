@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://cxet8narhqa0h"]
+
+[ext_resource type="PackedScene" uid="uid://dqhlswp7xb4on" path="res://Resources/Graphics/room_demo.tscn" id="1_kpcsv"]
+[ext_resource type="Script" uid="uid://dn55slrbaxs0x" path="res://Nodes/TestStuffi/door.gd" id="2_t6r20"]
+[ext_resource type="Texture2D" uid="uid://digth438efsft" path="res://Resources/Graphics/testMarioBlockGround.png" id="3_gv2ii"]
+[ext_resource type="PackedScene" uid="uid://bdxqmk3ggqmtf" path="res://Nodes/TestStuffi/keyholetriggerNode.tscn" id="4_2iqyd"]
+[ext_resource type="PackedScene" uid="uid://rjon7o6cr0k7" path="res://Nodes/Character/player.tscn" id="5_pgvy0"]
+[ext_resource type="SpriteFrames" uid="uid://ql0oexf2gx3w" path="res://Resources/Animations/testFrames.tres" id="6_divhs"]
+[ext_resource type="PackedScene" uid="uid://bqnjx857fx602" path="res://Resources/Audio/AudioManager.tscn" id="7_pfbw7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydtrf"]
+size = Vector2(120, 240)
+
+[node name="Main" type="Node2D" unique_id=2023976824]
+
+[node name="Level" type="Node2D" parent="." unique_id=1508670684]
+
+[node name="RoomDemo" parent="Level" unique_id=1580834023 instance=ExtResource("1_kpcsv")]
+position = Vector2(-2, 427)
+scale = Vector2(3, 3)
+
+[node name="Door" type="Node2D" parent="Level/RoomDemo" unique_id=1851917246]
+position = Vector2(375.66666, -57.333344)
+scale = Vector2(0.33333334, 0.33333334)
+script = ExtResource("2_t6r20")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/RoomDemo/Door" unique_id=1740075553]
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/RoomDemo/Door/StaticBody2D" unique_id=1732378979]
+scale = Vector2(0.1, 0.20166662)
+texture = ExtResource("3_gv2ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RoomDemo/Door/StaticBody2D" unique_id=876301120]
+shape = SubResource("RectangleShape2D_ydtrf")
+
+[node name="FlippedWorld" type="Node2D" parent="Level" unique_id=1990846937]
+position = Vector2(-95, 799)
+scale = Vector2(1, -1)
+
+[node name="RoomDemo2" parent="Level/FlippedWorld" unique_id=276295471 instance=ExtResource("1_kpcsv")]
+position = Vector2(96, 371)
+scale = Vector2(3, 3)
+isDark = true
+
+[node name="KeyholeTrigger" parent="Level/FlippedWorld/RoomDemo2" unique_id=1728277272 node_paths=PackedStringArray("doorReference") instance=ExtResource("4_2iqyd")]
+position = Vector2(414, -104.66667)
+scale = Vector2(0.33333334, -0.33333334)
+doorReference = NodePath("../../../RoomDemo/Door")
+
+[node name="Player" parent="." unique_id=191039957 instance=ExtResource("5_pgvy0")]
+position = Vector2(0, 207)
+scale = Vector2(0.5, 0.5)
+
+[node name="LightSprite" parent="Player/LightPlayer" parent_id_path=PackedInt32Array(191039957, 1462959315) index="0" unique_id=1684322389]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" parent="Player/LightPlayer" parent_id_path=PackedInt32Array(191039957, 1462959315) index="1" unique_id=1962381053]
+position = Vector2(9.200003, 5.8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/DarkPlayer" parent_id_path=PackedInt32Array(191039957, 1537752864) index="0" unique_id=1660764252]
+position = Vector2(10.799995, -10.200001)
+scale = Vector2(0.6, 0.6)
+sprite_frames = ExtResource("6_divhs")
+animation = &"idle"
+
+[node name="DarkSprite" parent="Player/DarkPlayer" parent_id_path=PackedInt32Array(191039957, 1537752864) index="1" unique_id=1106344889]
+visible = false
+
+[node name="CurrentItem" parent="Player/DarkPlayer/DarkSprite" index="0" unique_id=747600886]
+visible = false
+
+[node name="CollisionShape2D" parent="Player/DarkPlayer" parent_id_path=PackedInt32Array(191039957, 1537752864) index="2" unique_id=326632727]
+position = Vector2(10.800001, 8.999998)
+
+[node name="Camera2D" parent="Player" index="2" unique_id=555690143]
+scale = Vector2(3, 3)
+zoom = Vector2(2, 2)
+
+[node name="Ghost" type="Node2D" parent="." unique_id=611432385]
+
+[node name="AudioManager" parent="." unique_id=16757329 instance=ExtResource("7_pfbw7")]
+
+[editable path="Player"]
