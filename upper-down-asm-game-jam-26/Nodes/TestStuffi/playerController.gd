@@ -4,7 +4,7 @@ extends Node2D
 @export var darkCharacter: CharacterBody2D
 @export var cameraOffset: Vector2
 @onready var playerCamera: Camera2D = $Camera2D
-var ghostUnlocked = false
+@export var ghostUnlocked = false #Exported for testing reasons
 var activeCharacter: CharacterBody2D
 
 func _ready():
