@@ -20,7 +20,7 @@ func _ready():
 	
 func on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(start_level)
-	AudioManager.fade_out_music(5)
+	AudioManager.fade_out_music(2.5)
 	
 
 func prepare_sound_effects(button: Button):
