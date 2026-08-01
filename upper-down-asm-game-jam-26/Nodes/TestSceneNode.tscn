@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://rjon7o6cr0k7" path="res://Nodes/Character/player.tscn" id="4_5axdg"]
 [ext_resource type="PackedScene" uid="uid://cuf1q7j1pa4bm" path="res://Nodes/UI/in_game_menu.tscn" id="4_jjeup"]
 [ext_resource type="PackedScene" uid="uid://diw1uymw3ul30" path="res://Nodes/TestStuffi/dialogueUICanvas.tscn" id="5_0ee0v"]
-[ext_resource type="PackedScene" uid="uid://bp2v73wk4texd" path="res://Nodes/level_design.tscn" id="7_mwqab"]
+[ext_resource type="PackedScene" uid="uid://bp2v73wk4texd" path="res://Nodes/LevelDesign/level_design.tscn" id="7_mwqab"]
 [ext_resource type="Script" uid="uid://c48pdewcxi36c" path="res://Nodes/TestStuffi/unlockGhostTrigger.gd" id="10_1ifys"]
 [ext_resource type="Texture2D" uid="uid://digth438efsft" path="res://Resources/Graphics/testMarioBlockGround.png" id="11_qm5pm"]
 

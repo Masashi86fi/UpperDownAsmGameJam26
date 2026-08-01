@@ -1,0 +1,191 @@
+[gd_scene format=4 uid="uid://bp2v73wk4texd"]
+
+[ext_resource type="TileSet" uid="uid://ds2a678osvt7n" path="res://Resources/Graphics/bgwalls.tres" id="1_nbefw"]
+[ext_resource type="TileSet" uid="uid://csio0nxk8prp" path="res://Resources/Graphics/floors.tres" id="2_nvtds"]
+[ext_resource type="TileSet" uid="uid://bqp4vcbwefv0r" path="res://Resources/Graphics/room_walls.tres" id="3_svge4"]
+[ext_resource type="Gradient" uid="uid://bdlakp2u6p30a" path="res://Resources/Graphics/reversed.tres" id="4_dlkl8"]
+[ext_resource type="Script" uid="uid://ca10mo6mumqrx" path="res://Nodes/TestStuffi/keyholeTrigger.gd" id="5_5kpwy"]
+[ext_resource type="PackedScene" uid="uid://bh6b2jgay6vwx" path="res://Nodes/LevelDesign/above_world.tscn" id="5_tisdi"]
+[ext_resource type="Texture2D" uid="uid://digth438efsft" path="res://Resources/Graphics/testMarioBlockGround.png" id="6_0fntx"]
+[ext_resource type="Script" uid="uid://dn55slrbaxs0x" path="res://Nodes/TestStuffi/door.gd" id="7_6rllb"]
+[ext_resource type="Script" uid="uid://ck1iyjj67x7c0" path="res://Nodes/TestStuffi/pickupItem.gd" id="8_x6pkj"]
+
+[sub_resource type="Gradient" id="Gradient_fhjhh"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.50751877, 1)
+colors = PackedColorArray(0.41674656, 0.4167466, 0.41674656, 1, 1, 1, 1, 0.011764706)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4ydp"]
+gradient = SubResource("Gradient_fhjhh")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.32, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6lpcg"]
+gradient = ExtResource("4_dlkl8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.32, 0)
+
+[sub_resource type="Gradient" id="Gradient_m1qpb"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.37218046, 1)
+colors = PackedColorArray(0.0062176613, 0.016032258, 0.052415483, 1, 0, 0.012920001, 0.050708726, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fhjhh"]
+gradient = SubResource("Gradient_m1qpb")
+fill = 1
+fill_from = Vector2(0.46244133, 0.48122066)
+fill_to = Vector2(0.7347418, 0.45774648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfahj"]
+size = Vector2(130, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydtrf"]
+size = Vector2(32, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g34su"]
+
+[node name="LevelDesign" type="Node" unique_id=1620190401]
+
+[node name="UnderWorld" type="Node2D" parent="." unique_id=1548943776]
+position = Vector2(0, 100)
+scale = Vector2(1, -1)
+
+[node name="AboveWorld" type="Node2D" parent="UnderWorld" unique_id=1002525874]
+modulate = Color(0.48805398, 0.48805404, 0.48805404, 1)
+
+[node name="Room" type="Node2D" parent="UnderWorld/AboveWorld" unique_id=1872035406]
+visibility_layer = 2
+z_index = 1
+texture_filter = 1
+texture_repeat = 1
+
+[node name="CanvasGroup" type="CanvasGroup" parent="UnderWorld/AboveWorld/Room" unique_id=928353041]
+
+[node name="back_ground_tiles" type="TileMapLayer" parent="UnderWorld/AboveWorld/Room/CanvasGroup" unique_id=1691606247]
+z_index = 1
+tile_map_data = PackedByteArray("AAAAAP7/AgABAAEAAAAAAP//AgABAAIAAAABAP7/AgABAAEAAAABAP//AgABAAIAAAACAP7/AgABAAEAAAACAP//AgABAAIAAAADAP7/AgABAAEAAAADAP//AgABAAIAAAAEAP7/AgABAAEAAAAEAP//AgABAAIAAAAFAP7/AgABAAEAAAAFAP//AgABAAIAAAAGAP7/AgABAAEAAAAGAP//AgABAAIAAAAHAP7/AgABAAEAAAAHAP//AgABAAIAAAAAAPz/AgABAAEAAAAAAP3/AgABAAIAAAABAPz/AgABAAEAAAABAP3/AgABAAIAAAACAPz/AgABAAEAAAACAP3/AgABAAIAAAADAPz/AgABAAEAAAADAP3/AgABAAIAAAAEAPz/AgABAAEAAAAEAP3/AgABAAIAAAAFAPz/AgABAAIAAAAFAP3/AgABAAIAAAAGAPz/AgABAAIAAAAGAP3/AgABAAIAAAAHAPz/AgABAAIAAAAHAP3/AgABAAIAAAD/////AgAAAAIAAAD///7/AgAAAAIAAAD///3/AgAAAAIAAAD///z/AgAAAAIAAAD///v/AgAAAAAAAAAAAPv/AgABAAAAAAABAPv/AgABAAAAAAACAPv/AgABAAAAAAADAPv/AgABAAAAAAAEAPv/AgABAAAAAAAFAPv/AgABAAEAAAAGAPv/AgABAAEAAAAIAPv/AgABAAEAAAAHAPv/AgABAAEAAAAIAPz/AgABAAIAAAAIAP3/AgACAAEAAAAIAP7/AgACAAEAAAAIAP//AgACAAIAAAAJAP3/AgABAAEAAAAJAP7/AgABAAEAAAAJAPv/AgABAAEAAAAJAPz/AgABAAIAAAD///r/AgABAAIAAAAAAPn/AgABAAEAAAAAAPr/AgABAAIAAAABAPn/AgABAAEAAAABAPr/AgABAAIAAAACAPn/AgABAAEAAAACAPr/AgABAAIAAAADAPn/AgABAAEAAAADAPr/AgABAAIAAAAEAPn/AgABAAEAAAAEAPr/AgABAAIAAAAIAPn/AgABAAEAAAAIAPr/AgABAAIAAAAHAPn/AgABAAEAAAAHAPr/AgABAAIAAAAGAPn/AgABAAEAAAAGAPr/AgABAAIAAAAFAPn/AgABAAEAAAAFAPr/AgABAAIAAAAJAPn/AgABAAEAAAAJAPr/AgABAAIAAAAJAP//AgABAAIAAAD+//3/AgABAAEAAAD+//7/AgABAAIAAAD+//z/AgABAAIAAAD9//z/AgAAAAIAAAD9//3/AgAAAAEAAAD9//7/AgAAAAIAAAAJAPj/AgABAAAAAAAIAPj/AgABAAAAAAAHAPj/AgABAAAAAAAGAPj/AgABAAAAAAAFAPj/AgABAAAAAAAEAPj/AgABAAAAAAADAPj/AgABAAAAAAACAPj/AgABAAAAAAABAPj/AgABAAAAAAD+//v/AgABAAEAAAD//wAAAgABAAEAAAD//wEAAgABAAIAAAAAAAAAAgABAAEAAAAAAAEAAgABAAEAAAABAAAAAgABAAEAAAABAAEAAgABAAEAAAACAAAAAgABAAEAAAACAAEAAgABAAEAAAADAAAAAgABAAEAAAADAAEAAgABAAEAAAAEAAAAAgABAAEAAAAEAAEAAgABAAEAAAAFAAAAAgABAAEAAAAFAAEAAgABAAEAAAAGAAAAAgABAAEAAAAGAAEAAgABAAEAAAAHAAAAAgABAAEAAAAHAAEAAgABAAEAAAAIAAAAAgABAAEAAAAIAAEAAgABAAEAAAAJAAAAAgABAAEAAAAJAAEAAgABAAEAAAAAAAIAAgABAAIAAAABAAIAAgABAAIAAAACAAIAAgABAAIAAAADAAIAAgABAAIAAAAEAAIAAgABAAIAAAAFAAIAAgABAAIAAAAGAAIAAgABAAIAAAAHAAIAAgABAAIAAAAIAAIAAgABAAIAAAAJAAIAAgABAAIAAAA=")
+tile_set = ExtResource("1_nbefw")
+y_sort_origin = 1
+
+[node name="floor_tiles" type="TileMapLayer" parent="UnderWorld/AboveWorld/Room/CanvasGroup" unique_id=1758817120]
+z_index = 4
+tile_map_data = PackedByteArray("AAAAAP//AAAAAAEAAAABAP//AAAAAAEAAAACAP//AAAAAAEAAAADAP//AAAAAAEAAAAEAP//AAAAAAEAAAAFAP//AAAAAAEAAAAGAP//AAAAAAEAAAAHAP//AAAAAAEAAAD/////AAAAAAEAAAAIAP//AAAAAAEAAAAJAP//AAAAAAEAAAD9////AAAAAAEAAAD+////AAAAAAEAAAD6////AAAAAAEAAAD7////AAAAAAEAAAD8////AAAAAAEAAAAIAPz/AAAAAAAAAAAIAP3/AAAAAAAAAAAIAP7/AAAAAAAAAAAHAP7/AAAAAAAAAAAGAP7/AAAAAAAAAAAFAP7/AAAAAAAAAAAEAP7/AAAAAAEAAAADAP7/AAAAAAAAAAACAP7/AAAAAAAAAAABAP7/AAAAAAAAAAAAAP7/AAAAAAAAAAAAAP3/AAAAAAAAAAAAAPz/AAAAAAAAAAABAPz/AAAAAAAAAAADAPz/AAAAAAAAAAAEAPz/AAAAAAAAAAAFAPz/AAAAAAAAAAAGAPz/AAAAAAAAAAAHAPz/AAAAAAEAAAAHAP3/AAAAAAAAAAAGAP3/AAAAAAAAAAAFAP3/AAAAAAAAAAAEAP3/AAAAAAAAAAACAP3/AAAAAAAAAAABAP3/AAAAAAAAAAABAPv/AAAAAAEAAAACAPv/AAAAAAAAAAADAPv/AAAAAAAAAAAEAPv/AAAAAAEAAAAFAPv/AAAAAAEAAAAGAPv/AAAAAAAAAAAHAPv/AAAAAAAAAAAIAPv/AAAAAAAAAAAIAPr/AAAAAAAAAAAHAPr/AAAAAAAAAAADAPr/AAAAAAAAAAACAPr/AAAAAAAAAAABAPr/AAAAAAAAAAABAPn/AAAAAAAAAAACAPn/AAAAAAAAAAADAPn/AAAAAAAAAAAEAPn/AAAAAAAAAAAFAPn/AAAAAAAAAAAGAPn/AAAAAAAAAAAHAPn/AAAAAAAAAAAIAPn/AAAAAAAAAAD+//z/AAAAAAAAAAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAD6//v/AAAAAAAAAAD7//v/AAAAAAAAAAD8//v/AAAAAAAAAAD9//v/AAAAAAAAAAD+//v/AAAAAAAAAAD+//j/AAAAAAAAAAD///j/AAAAAAAAAAAAAPj/AAAAAAAAAAADAP3/AAAAAAEAAAACAPz/AAAAAAEAAAAAAPv/AAAAAAEAAAA=")
+tile_set = ExtResource("2_nvtds")
+
+[node name="walls" type="TileMapLayer" parent="UnderWorld/AboveWorld/Room/CanvasGroup" unique_id=1412997206]
+z_index = 3
+tile_map_data = PackedByteArray("AAAJAPv/AAAAAAYAAAAJAPr/AAAAAAYAAAAJAPj/AAAAAAYAAAAJAPn/AAAAAAYAAAABAPj/AAAAAAQAAAAAAPn/AAAAAAYAAAAAAPr/AAAAAAYAAAD///v/AAAAAAYAAAD///r/AAAAAAYAAAD+//v/AAAAAAYAAAD9//v/AAAAAAYAAAD6//v/AAAAAAYAAAD7//v/AAAAAAYAAAD8//v/AAAAAAYAAAD6//z/AAABAAcAAAD6//3/AAABAAcAAAD6//7/AAABAAcAAAACAPj/AAAAAAcAAAADAPj/AAAAAAcAAAAEAPj/AAAAAAcAAAAFAPj/AAAAAAcAAAAGAPj/AAAAAAcAAAAHAPj/AAAAAAcAAAAIAPj/AAAAAAcAAAABAPn/AAABAAcAAAABAPr/AAABAAcAAAA=")
+tile_set = ExtResource("3_svge4")
+
+[node name="BackGround" type="Node2D" parent="UnderWorld/AboveWorld" unique_id=1664599020]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="UnderWorld/AboveWorld/BackGround" unique_id=1403449555]
+light_mask = 2
+visibility_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="UnderWorld/AboveWorld/BackGround" unique_id=241467350]
+modulate = Color(1, 1, 1, 0.54901963)
+scale = Vector2(64, 64)
+texture = SubResource("GradientTexture2D_g4ydp")
+
+[node name="PointLight2D" type="PointLight2D" parent="UnderWorld/AboveWorld/BackGround" unique_id=2023298659]
+scale = Vector2(96, 97.363)
+energy = 2.0
+range_z_min = 0
+range_z_max = 0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6lpcg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="UnderWorld/AboveWorld/BackGround" unique_id=1846538189]
+position = Vector2(224, 416)
+scale = Vector2(60, 60)
+texture = SubResource("GradientTexture2D_fhjhh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="UnderWorld/AboveWorld/BackGround" unique_id=1524869097]
+position = Vector2(288, -95.99997)
+scale = Vector2(60, 60)
+texture = SubResource("GradientTexture2D_fhjhh")
+
+[node name="Interactables" type="Node2D" parent="UnderWorld/AboveWorld" unique_id=393776435]
+z_index = 3
+
+[node name="KeyholeTrigger" type="Area2D" parent="UnderWorld/AboveWorld/Interactables" unique_id=1473623960 node_paths=PackedStringArray("doorReference")]
+z_index = 5
+position = Vector2(352, 224)
+script = ExtResource("5_5kpwy")
+doorReference = NodePath("../Door2")
+itemRequired = "Key"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UnderWorld/AboveWorld/Interactables/KeyholeTrigger" unique_id=804203855]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_xfahj")
+
+[node name="Sprite2D" type="Sprite2D" parent="UnderWorld/AboveWorld/Interactables/KeyholeTrigger" unique_id=1079581700]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("6_0fntx")
+
+[node name="Door2" type="Node2D" parent="UnderWorld/AboveWorld/Interactables" unique_id=1166169091]
+z_index = 5
+position = Vector2(288, -32)
+script = ExtResource("7_6rllb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="UnderWorld/AboveWorld/Interactables/Door2" unique_id=1361677276]
+
+[node name="Sprite2D" type="Sprite2D" parent="UnderWorld/AboveWorld/Interactables/Door2/StaticBody2D" unique_id=825019667]
+position = Vector2(16, -48)
+scale = Vector2(0.026666667, 0.08)
+texture = ExtResource("6_0fntx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UnderWorld/AboveWorld/Interactables/Door2/StaticBody2D" unique_id=518963940]
+position = Vector2(16, -50)
+shape = SubResource("RectangleShape2D_ydtrf")
+
+[node name="PickupItem_Area2D" type="Area2D" parent="UnderWorld/AboveWorld/Interactables" unique_id=1042962093]
+position = Vector2(-32, 256)
+scale = Vector2(0.060833335, 0.060833335)
+script = ExtResource("8_x6pkj")
+itemName = "Key"
+
+[node name="ItemSprite" type="Sprite2D" parent="UnderWorld/AboveWorld/Interactables/PickupItem_Area2D" unique_id=1176650569]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_0fntx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UnderWorld/AboveWorld/Interactables/PickupItem_Area2D" unique_id=1279586888]
+shape = SubResource("RectangleShape2D_g34su")
+
+[node name="Room2" type="Node2D" parent="UnderWorld/AboveWorld" unique_id=1011684416]
+visibility_layer = 2
+z_index = 1
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(320, 0)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="UnderWorld/AboveWorld/Room2" unique_id=513675066]
+
+[node name="back_ground_tiles" type="TileMapLayer" parent="UnderWorld/AboveWorld/Room2/CanvasGroup" unique_id=1010960454]
+z_index = 1
+tile_map_data = PackedByteArray("AAAAAP7/AgABAAEAAAAAAP//AgABAAIAAAABAP7/AgABAAEAAAABAP//AgABAAIAAAACAP7/AgABAAEAAAACAP//AgABAAIAAAADAP7/AgABAAEAAAADAP//AgABAAIAAAAAAPz/AgABAAEAAAAAAP3/AgABAAIAAAABAPz/AgABAAEAAAABAP3/AgABAAIAAAACAPz/AgABAAEAAAACAP3/AgABAAIAAAADAPz/AgABAAEAAAADAP3/AgABAAIAAAAAAPv/AgABAAAAAAABAPv/AgABAAAAAAACAPv/AgABAAAAAAADAPv/AgABAAAAAAAAAPn/AgABAAEAAAAAAPr/AgABAAIAAAABAPn/AgABAAEAAAABAPr/AgABAAIAAAACAPn/AgABAAEAAAACAPr/AgABAAIAAAADAPn/AgABAAEAAAADAPr/AgABAAIAAAADAPj/AgABAAAAAAACAPj/AgABAAAAAAABAPj/AgABAAAAAAAAAPj/AgABAAAAAAAEAPj/AgABAAEAAAAEAPn/AgABAAIAAAAFAPj/AgABAAEAAAAFAPn/AgABAAIAAAAGAPj/AgABAAEAAAAGAPn/AgABAAIAAAAHAPj/AgABAAEAAAAHAPn/AgABAAIAAAAIAPj/AgABAAEAAAAIAPn/AgABAAIAAAAJAPj/AgABAAEAAAAJAPn/AgABAAIAAAAJAPr/AgABAAEAAAAJAPv/AgABAAIAAAAJAPz/AgABAAEAAAAJAP3/AgABAAIAAAAIAPz/AgABAAEAAAAIAP3/AgABAAIAAAAIAP7/AgABAAEAAAAIAP//AgABAAIAAAAJAP7/AgABAAEAAAAJAP//AgABAAIAAAAHAP7/AgABAAEAAAAHAP//AgABAAIAAAAGAP7/AgABAAEAAAAGAP//AgABAAIAAAAFAP7/AgABAAEAAAAFAP//AgABAAIAAAAEAP7/AgABAAEAAAAEAP//AgABAAIAAAAEAPz/AgABAAEAAAAEAP3/AgABAAIAAAAEAPr/AgABAAEAAAAEAPv/AgABAAIAAAAFAPr/AgABAAEAAAAFAPv/AgABAAIAAAAGAPr/AgABAAEAAAAGAPv/AgABAAIAAAAHAPr/AgABAAEAAAAHAPv/AgABAAIAAAAIAPr/AgABAAEAAAAIAPv/AgABAAIAAAAHAPz/AgABAAEAAAAHAP3/AgABAAIAAAAGAPz/AgABAAEAAAAGAP3/AgABAAIAAAAFAPz/AgABAAEAAAAFAP3/AgABAAIAAAADAPf/AgABAAAAAAAEAPf/AgABAAAAAAAFAPf/AgABAAAAAAAGAPf/AgABAAAAAAAHAPf/AgABAAAAAAAIAPf/AgABAAAAAAAJAPf/AgABAAAAAAAKAPf/AgABAAAAAAAKAPj/AgACAAEAAAAKAPz/AgACAAEAAAAKAP3/AgACAAEAAAAKAPv/AgACAAEAAAAKAPr/AgACAAEAAAAKAPn/AgACAAEAAAAKAP7/AgACAAEAAAAKAP//AgACAAEAAAAAAPf/AgABAAAAAAABAPf/AgABAAAAAAACAPf/AgABAAAAAAA=")
+tile_set = ExtResource("1_nbefw")
+y_sort_origin = 1
+
+[node name="floor_tiles" type="TileMapLayer" parent="UnderWorld/AboveWorld/Room2/CanvasGroup" unique_id=978332792]
+z_index = 4
+tile_map_data = PackedByteArray("AAAAAP//AAAAAAEAAAABAP//AAAAAAEAAAACAP//AAAAAAEAAAADAP//AAAAAAEAAAAGAP//AAAAAAEAAAAHAP//AAAAAAEAAAAIAP//AAAAAAEAAAAJAP//AAAAAAEAAAAFAPv/AAAAAAEAAAACAP3/AAAAAAEAAAAAAPz/AAAAAAEAAAABAP7/AAAAAAEAAAA=")
+tile_set = ExtResource("2_nvtds")
+
+[node name="walls" type="TileMapLayer" parent="UnderWorld/AboveWorld/Room2/CanvasGroup" unique_id=1907416599]
+tile_map_data = PackedByteArray("AAAEAPv/AAAAAAYAAAAEAPr/AAAAAAYAAAAEAPn/AAAAAAYAAAAEAPj/AAAAAAYAAAAEAPf/AAAAAAYAAAAFAPf/AAAAAAYAAAAGAPf/AAAAAAYAAAAHAPf/AAAAAAYAAAAIAPf/AAAAAAYAAAAJAPf/AAAAAAYAAAAKAPf/AAAAAAYAAAAKAPj/AAAAAAYAAAAKAPv/AAAAAAYAAAAKAPz/AAAAAAYAAAAKAP3/AAAAAAYAAAAKAP7/AAAAAAYAAAAKAP//AAAAAAYAAAAAAAAAAAABAAMAAAABAAAAAAABAAMAAAACAAAAAAABAAMAAAADAAAAAAABAAMAAAAEAAAAAAABAAMAAAAFAAAAAAABAAMAAAAGAAAAAAABAAMAAAAHAAAAAAABAAMAAAAIAAAAAAABAAMAAAAJAAAAAAABAAMAAAAKAAAAAAABAAMAAAD///f/AAAAAAYAAAA=")
+tile_set = ExtResource("3_svge4")
+
+[node name="AboveWorld" parent="." unique_id=2028321695 instance=ExtResource("5_tisdi")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=833690176]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+color = Color(0.32024425, 0.3202441, 0.32024413, 1)
+
+[connection signal="body_entered" from="UnderWorld/AboveWorld/Interactables/KeyholeTrigger" to="UnderWorld/AboveWorld/Interactables/KeyholeTrigger" method="_on_body_entered"]
+[connection signal="body_entered" from="UnderWorld/AboveWorld/Interactables/PickupItem_Area2D" to="UnderWorld/AboveWorld/Interactables/PickupItem_Area2D" method="_on_body_entered"]
