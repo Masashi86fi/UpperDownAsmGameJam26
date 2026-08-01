@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dcudtifbtgker"]
+
+[ext_resource type="Script" uid="uid://b4iw76rh4e6o1" path="res://Nodes/TestStuffi/sceneSwapTrigger.gd" id="1_8vfje"]
+[ext_resource type="PackedScene" uid="uid://dxvmjtl6ov83c" path="res://Nodes/UI/main_menu.tscn" id="2_52xsx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g34su"]
+size = Vector2(94, 117)
+
+[node name="SceneSwapTrigger" type="Area2D" unique_id=1512196338]
+script = ExtResource("1_8vfje")
+sceneRoute = ExtResource("2_52xsx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2002907090]
+position = Vector2(44, 41)
+shape = SubResource("RectangleShape2D_g34su")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

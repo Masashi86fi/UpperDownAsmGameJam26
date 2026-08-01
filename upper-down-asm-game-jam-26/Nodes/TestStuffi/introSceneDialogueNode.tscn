@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b8i65v21fn3fo"]
+
+[ext_resource type="Script" uid="uid://d00sm46sraue2" path="res://Nodes/TestStuffi/introSceneScript.gd" id="1_igcdn"]
+
+[node name="IntroSceneDialogueNode" type="Node" unique_id=840594330]
+script = ExtResource("1_igcdn")

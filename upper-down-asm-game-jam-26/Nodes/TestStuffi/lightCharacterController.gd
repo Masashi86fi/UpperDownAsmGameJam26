@@ -15,6 +15,7 @@ func _jump():
 
 func _swap():
 	activeCharacter = !activeCharacter
+		
 	
 func _process(_delta):
 	if Input.is_action_just_pressed("interact_object") and currentInteractable and activeCharacter:
