@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var itemlabel = $Control/ItemPanel/MarginContainer/ItemLabel
 @onready var itemicon = $Control/ItemPanel/MarginContainer/ItemSprite
 @onready var itemPanel = $Control/ItemPanel
+@onready var interactPanel = $Control/InteractPanel
 var typing
 var dialog_id = 0
 
@@ -59,3 +60,6 @@ func hide_message():
 	dialog_id += 1
 	panel.visible = false
 	audio.playing = false
+	
+func toggleInteractUI(state: bool):
+	interactPanel.visible = state

@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var gravity = 100
 @export var jump_force = 200
 @export var activeCharacter = true
+var currentInteractable: Area2D = null
 
 	
 func _jump():
@@ -14,6 +15,10 @@ func _jump():
 
 func _swap():
 	activeCharacter = !activeCharacter
+	
+func _process(_delta):
+	if Input.is_action_just_pressed("interact_object") and currentInteractable and activeCharacter:
+		currentInteractable.interact()
 
 func _physics_process(delta):
 	# Apply gravity
