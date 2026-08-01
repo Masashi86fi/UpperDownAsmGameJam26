@@ -11,7 +11,7 @@ var currentInteractable: Area2D = null
 	
 func _jump():
 	if is_on_floor():
-		velocity.y = -jump_force
+		velocity.y = (-jump_force * jump_force) / gravity
 
 func _swap():
 	activeCharacter = !activeCharacter
