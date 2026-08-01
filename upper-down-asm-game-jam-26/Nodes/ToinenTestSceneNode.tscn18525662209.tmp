@@ -1,0 +1,227 @@
+[gd_scene format=3 uid="uid://bs8mmfyfpjtt"]
+
+[ext_resource type="Texture2D" uid="uid://digth438efsft" path="res://Resources/Graphics/testMarioBlockGround.png" id="1_50gm7"]
+[ext_resource type="PackedScene" uid="uid://duno5folwue22" path="res://Nodes/TestStuffi/doorNode.tscn" id="1_sdw02"]
+[ext_resource type="Script" uid="uid://do0d5ec5xh75r" path="res://Nodes/TestStuffi/playerController.gd" id="2_gckp2"]
+[ext_resource type="PackedScene" uid="uid://xgj8ga1welih" path="res://Nodes/TestStuffi/pickupItemNode.tscn" id="2_sdw02"]
+[ext_resource type="Texture2D" uid="uid://c0ne17va5x3p0" path="res://icon.svg" id="2_wdca5"]
+[ext_resource type="PackedScene" uid="uid://d2wskmawp7ls" path="res://Nodes/TestStuffi/dialogueTriggerNode.tscn" id="3_wdca5"]
+[ext_resource type="Texture2D" uid="uid://dhaev7o8q24q0" path="res://Resources/Graphics/AngelTest.png" id="4_wdca5"]
+[ext_resource type="Script" uid="uid://bd42p7b5q2fgu" path="res://Nodes/TestStuffi/lightCharacterController.gd" id="6_8w2go"]
+[ext_resource type="PackedScene" uid="uid://bdxqmk3ggqmtf" path="res://Nodes/TestStuffi/keyholetriggerNode.tscn" id="6_kktmi"]
+[ext_resource type="PackedScene" uid="uid://bu7cmvvdhv22m" path="res://Nodes/TestStuffi/lightTriggerNode.tscn" id="6_ydtrf"]
+[ext_resource type="Script" uid="uid://djngir2nloevi" path="res://Nodes/TestStuffi/darkCharacterController.gd" id="8_8w2go"]
+[ext_resource type="PackedScene" uid="uid://8bmoegbialjn" path="res://Nodes/TestStuffi/lightSwitchNode.tscn" id="8_kktmi"]
+[ext_resource type="PackedScene" uid="uid://dcudtifbtgker" path="res://Nodes/TestStuffi/sceneswapTriggerNode.tscn" id="9_e4mjj"]
+[ext_resource type="PackedScene" uid="uid://dcuosrrabl3t2" path="res://Nodes/TestStuffi/ghostUnlockTriggerNode.tscn" id="10_y00am"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1g2p"]
+size = Vector2(122, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqixm"]
+size = Vector2(28, 27)
+
+[node name="Node2D" type="Node2D" unique_id=291866959]
+
+[node name="Ground" type="Node2D" parent="." unique_id=338401458]
+
+[node name="Door" parent="Ground" unique_id=1308346134 instance=ExtResource("1_sdw02")]
+
+[node name="PickupItem_Area2D" parent="Ground" unique_id=563655248 instance=ExtResource("2_sdw02")]
+position = Vector2(838, 528)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=763525790]
+position = Vector2(1167, 229)
+texture = ExtResource("2_wdca5")
+
+[node name="DialogueTrigger" parent="Ground/Sprite2D" unique_id=1660729472 instance=ExtResource("3_wdca5")]
+
+[node name="TestKeyHole" type="Sprite2D" parent="Ground" unique_id=1826134678]
+position = Vector2(1165, 533)
+texture = ExtResource("2_wdca5")
+
+[node name="KeyholeTrigger" parent="Ground/TestKeyHole" unique_id=1728277272 node_paths=PackedStringArray("doorReference") instance=ExtResource("6_kktmi")]
+doorReference = NodePath("../../Door")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Ground" unique_id=767217816]
+position = Vector2(132, 229)
+texture = ExtResource("2_wdca5")
+
+[node name="DialogueTrigger" parent="Ground/Sprite2D2" unique_id=1179577510 instance=ExtResource("3_wdca5")]
+singleUse = false
+dialogue = [{
+"delay": 2.0,
+"speed": 0.01,
+"text": "SPAM SPAM SPAM SPAM SPAM"
+}]
+
+[node name="LightTrigger" parent="Ground" unique_id=146758993 node_paths=PackedStringArray("respawnPoint") instance=ExtResource("6_ydtrf")]
+position = Vector2(111, 542)
+respawnPoint = NodePath("../RespawnPoint")
+
+[node name="RespawnPoint" type="Node2D" parent="Ground" unique_id=1838151457]
+position = Vector2(620, 668)
+
+[node name="Walls" type="Node" parent="Ground" unique_id=503709470]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground/Walls" unique_id=1166645405]
+position = Vector2(115, 388)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground/Walls/StaticBody2D" unique_id=1427723522]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_50gm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Walls/StaticBody2D" unique_id=1203117096]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_t1g2p")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Ground/Walls" unique_id=418049454]
+position = Vector2(238.195, 388)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground/Walls/StaticBody2D2" unique_id=241223491]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_50gm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Walls/StaticBody2D2" unique_id=845292241]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_t1g2p")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Ground/Walls" unique_id=312932417]
+position = Vector2(362.185, 388)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground/Walls/StaticBody2D3" unique_id=1604367426]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_50gm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Walls/StaticBody2D3" unique_id=1268783925]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_t1g2p")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Ground/Walls" unique_id=1035727354]
+position = Vector2(485, 388)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground/Walls/StaticBody2D4" unique_id=1981743360]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_50gm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Walls/StaticBody2D4" unique_id=1882033120]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_t1g2p")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Ground/Walls" unique_id=24298416]
+position = Vector2(609, 388)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground/Walls/StaticBody2D5" unique_id=515125296]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_50gm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Walls/StaticBody2D5" unique_id=1892383882]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_t1g2p")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Ground/Walls" unique_id=1455511968]
+position = Vector2(733, 388)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground/Walls/StaticBody2D6" unique_id=2131675028]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_50gm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Walls/StaticBody2D6" unique_id=611792335]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_t1g2p")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Ground/Walls" unique_id=777982372]
+position = Vector2(856.195, 388)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground/Walls/StaticBody2D7" unique_id=1684699405]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_50gm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Walls/StaticBody2D7" unique_id=1073085577]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_t1g2p")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Ground/Walls" unique_id=1378838855]
+position = Vector2(980.185, 388)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground/Walls/StaticBody2D8" unique_id=1112643310]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_50gm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Walls/StaticBody2D8" unique_id=1600268316]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_t1g2p")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="Ground/Walls" unique_id=875106323]
+position = Vector2(1103, 388)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground/Walls/StaticBody2D9" unique_id=2068126916]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_50gm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Walls/StaticBody2D9" unique_id=1384634803]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_t1g2p")
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="Ground/Walls" unique_id=115952805]
+position = Vector2(1227, 388)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground/Walls/StaticBody2D10" unique_id=989655771]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_50gm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Walls/StaticBody2D10" unique_id=419442569]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_t1g2p")
+
+[node name="LightSwitchTrigger" parent="Ground" unique_id=302541927 node_paths=PackedStringArray("lights") instance=ExtResource("8_kktmi")]
+position = Vector2(347, 208)
+lights = [NodePath("../LightTrigger")]
+
+[node name="SceneSwapTrigger" parent="Ground" unique_id=1512196338 instance=ExtResource("9_e4mjj")]
+position = Vector2(-101, 127)
+
+[node name="GhostUnlockTrigger" parent="Ground" unique_id=46774252 instance=ExtResource("10_y00am")]
+position = Vector2(716, 189)
+
+[node name="Player" type="Node2D" parent="." unique_id=1497820935 node_paths=PackedStringArray("lightCharacter", "darkCharacter")]
+script = ExtResource("2_gckp2")
+lightCharacter = NodePath("LightPlayer")
+darkCharacter = NodePath("DarkPlayer")
+cameraOffset = Vector2(0, 200)
+
+[node name="LightPlayer" type="CharacterBody2D" parent="Player" unique_id=2144826268]
+position = Vector2(480, 160)
+scale = Vector2(5, 5)
+script = ExtResource("6_8w2go")
+
+[node name="LightSprite" type="Sprite2D" parent="Player/LightPlayer" unique_id=1966061110]
+position = Vector2(10, -10)
+texture = ExtResource("4_wdca5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/LightPlayer" unique_id=1489624474]
+position = Vector2(11, -8.5)
+shape = SubResource("RectangleShape2D_mqixm")
+
+[node name="DarkPlayer" type="CharacterBody2D" parent="Player" unique_id=388940596]
+position = Vector2(552, 649)
+rotation = 3.1415927
+scale = Vector2(5, 5)
+script = ExtResource("8_8w2go")
+
+[node name="DarkSprite" type="Sprite2D" parent="Player/DarkPlayer" unique_id=2072673145]
+position = Vector2(10, -10)
+texture = ExtResource("4_wdca5")
+
+[node name="CurrentItem" type="Sprite2D" parent="Player/DarkPlayer/DarkSprite" unique_id=290112001]
+position = Vector2(-12.4, 3.000001)
+scale = Vector2(0.01, 0.01)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/DarkPlayer" unique_id=546184271]
+position = Vector2(11, -8.5)
+shape = SubResource("RectangleShape2D_mqixm")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2065144925]
+position = Vector2(225, 133)
+scale = Vector2(5, 5)
+zoom = Vector2(0.5, 0.5)
