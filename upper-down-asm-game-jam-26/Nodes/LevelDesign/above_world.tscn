@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://csio0nxk8prp" path="res://Resources/Graphics/floors.tres" id="2_vspvu"]
 [ext_resource type="TileSet" uid="uid://bqp4vcbwefv0r" path="res://Resources/Graphics/room_walls.tres" id="3_e3uhg"]
 [ext_resource type="Gradient" uid="uid://bdlakp2u6p30a" path="res://Resources/Graphics/reversed.tres" id="4_4s6rg"]
-[ext_resource type="Texture2D" uid="uid://digth438efsft" path="res://Resources/Graphics/testMarioBlockGround.png" id="6_r2f07"]
+[ext_resource type="Texture2D" uid="uid://ce1rjjqsvlw5e" path="res://Resources/Graphics/mansion_door_tiles.png" id="6_dchtr"]
 [ext_resource type="Script" uid="uid://dn55slrbaxs0x" path="res://Nodes/TestStuffi/door.gd" id="7_huxvc"]
 
 [sub_resource type="Gradient" id="Gradient_fhjhh"]
@@ -99,18 +99,18 @@ z_index = 3
 
 [node name="Door2" type="Node2D" parent="Interactables" unique_id=1166169091]
 z_index = 5
-position = Vector2(288, -32)
+position = Vector2(416, 0)
 script = ExtResource("7_huxvc")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Interactables/Door2" unique_id=1361677276]
+position = Vector2(16, -64)
 
 [node name="Sprite2D" type="Sprite2D" parent="Interactables/Door2/StaticBody2D" unique_id=825019667]
-position = Vector2(16, -48)
-scale = Vector2(0.026666667, 0.08)
-texture = ExtResource("6_r2f07")
+texture = ExtResource("6_dchtr")
+region_enabled = true
+region_rect = Rect2(235, 32, 32, 93)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Door2/StaticBody2D" unique_id=518963940]
-position = Vector2(16, -50)
 shape = SubResource("RectangleShape2D_ydtrf")
 
 [node name="Room2" type="Node2D" parent="." unique_id=1011684416]
