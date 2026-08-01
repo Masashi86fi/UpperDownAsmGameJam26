@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cxet8narhqa0h"]
+
+[ext_resource type="PackedScene" uid="uid://bp2v73wk4texd" path="res://Nodes/level_design.tscn" id="3_qjs8y"]
+[ext_resource type="PackedScene" uid="uid://rjon7o6cr0k7" path="res://Nodes/Character/player.tscn" id="5_pgvy0"]
+[ext_resource type="PackedScene" uid="uid://bqnjx857fx602" path="res://Resources/Audio/AudioManager.tscn" id="7_pfbw7"]
+
+[node name="Main" type="Node2D" unique_id=2023976824]
+
+[node name="Ghost" type="Node2D" parent="." unique_id=611432385]
+
+[node name="AudioManager" parent="." unique_id=16757329 instance=ExtResource("7_pfbw7")]
+
+[node name="Player" parent="." unique_id=191039957 instance=ExtResource("5_pgvy0")]
+position = Vector2(32, -32)
+
+[node name="LevelDesign" parent="." unique_id=1620190401 instance=ExtResource("3_qjs8y")]

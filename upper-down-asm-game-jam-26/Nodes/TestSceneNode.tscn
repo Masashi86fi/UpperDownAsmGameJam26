@@ -1,55 +1,43 @@
 [gd_scene format=3 uid="uid://0vtw8ertsoxb"]
 
-[ext_resource type="SpriteFrames" uid="uid://ql0oexf2gx3w" path="res://Resources/Animations/testFrames.tres" id="1_a4tu3"]
-[ext_resource type="Script" uid="uid://s4rx8jhuenbw" path="res://Nodes/PlayerControllerTest.gd" id="1_kqi73"]
-[ext_resource type="Texture2D" uid="uid://c5yotr2r82kh0" path="res://Resources/Graphics/AreaTileBricksDarkBlue02.png" id="3_nsp04"]
+[ext_resource type="PackedScene" uid="uid://rjon7o6cr0k7" path="res://Nodes/Character/player.tscn" id="4_5axdg"]
 [ext_resource type="PackedScene" uid="uid://cuf1q7j1pa4bm" path="res://Nodes/UI/in_game_menu.tscn" id="4_jjeup"]
+[ext_resource type="PackedScene" uid="uid://diw1uymw3ul30" path="res://Nodes/TestStuffi/dialogueUICanvas.tscn" id="5_0ee0v"]
+[ext_resource type="PackedScene" uid="uid://bp2v73wk4texd" path="res://Nodes/level_design.tscn" id="7_mwqab"]
+[ext_resource type="Script" uid="uid://c48pdewcxi36c" path="res://Nodes/TestStuffi/unlockGhostTrigger.gd" id="10_1ifys"]
+[ext_resource type="Texture2D" uid="uid://digth438efsft" path="res://Resources/Graphics/testMarioBlockGround.png" id="11_qm5pm"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6lpcg"]
-radius = 18.0
-height = 57.999996
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6lpcg"]
-size = Vector2(31.399998, 31.2)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4mjj"]
+size = Vector2(158, 121)
 
 [node name="MainTest" type="Node2D" unique_id=587167177]
 
-[node name="PlayerTest" type="CharacterBody2D" parent="." unique_id=527931659]
-position = Vector2(487, 329)
-script = ExtResource("1_kqi73")
+[node name="LevelDesign" parent="." unique_id=1620190401 instance=ExtResource("7_mwqab")]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerTest" unique_id=1335716304]
-texture_filter = 3
-position = Vector2(0, -42)
-scale = Vector2(3, 3.218)
-sprite_frames = ExtResource("1_a4tu3")
-animation = &"idle"
+[node name="MenuCanvasLayer" type="CanvasLayer" parent="." unique_id=881887417]
+visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTest" unique_id=186620489]
-position = Vector2(0, -16)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_6lpcg")
-
-[node name="LevelDesign" type="Node" parent="." unique_id=755895222]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="LevelDesign" unique_id=226891289]
-position = Vector2(521, 464)
-scale = Vector2(5, 5)
-disable_mode = 1
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelDesign/StaticBody2D" unique_id=572618578]
-position = Vector2(-0.09999275, 0.40000153)
-scale = Vector2(0.99999976, 0.99999976)
-shape = SubResource("RectangleShape2D_6lpcg")
-
-[node name="Sprite2D" type="Sprite2D" parent="LevelDesign/StaticBody2D" unique_id=1205494610]
-texture_filter = 3
-texture_repeat = 2
-texture = ExtResource("3_nsp04")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=881887417]
-
-[node name="InGameMenu" parent="CanvasLayer" unique_id=1626614383 instance=ExtResource("4_jjeup")]
+[node name="InGameMenu" parent="MenuCanvasLayer" unique_id=1626614383 instance=ExtResource("4_jjeup")]
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = null
+
+[node name="DialogueLayer" parent="." unique_id=557505117 instance=ExtResource("5_0ee0v")]
+
+[node name="Player" parent="." unique_id=1525041752 instance=ExtResource("4_5axdg")]
+position = Vector2(40, -24)
+
+[node name="GhostUnlockTrigger" type="Area2D" parent="." unique_id=46774252]
+z_index = 4
+position = Vector2(208, -40)
+script = ExtResource("10_1ifys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GhostUnlockTrigger" unique_id=1667446901]
+scale = Vector2(0.2, 0.2)
+shape = SubResource("RectangleShape2D_e4mjj")
+
+[node name="Sprite2D" type="Sprite2D" parent="GhostUnlockTrigger" unique_id=880059181]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("11_qm5pm")
+
+[connection signal="body_entered" from="GhostUnlockTrigger" to="GhostUnlockTrigger" method="_on_body_entered"]

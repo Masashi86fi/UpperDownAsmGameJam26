@@ -5,7 +5,7 @@ extends Control
 @onready var exit_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/ExitButton as Button
 const MAIN_MENU_THEME = preload("res://Resources/Audio/Music/main_theme.ogg")
 
-@onready var start_level=preload("res://Nodes/TestSceneNode.tscn") as PackedScene
+@onready var start_level=preload("res://Nodes/Main/main.tscn") as PackedScene
 
 func _ready():
 	start_button.button_down.connect(on_start_pressed)
