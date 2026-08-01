@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dcuosrrabl3t2"]
+
+[ext_resource type="Script" uid="uid://c48pdewcxi36c" path="res://Nodes/TestStuffi/unlockGhostTrigger.gd" id="1_503ix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4mjj"]
+size = Vector2(158, 121)
+
+[node name="GhostUnlockTrigger" type="Area2D" unique_id=46774252]
+script = ExtResource("1_503ix")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1667446901]
+position = Vector2(69, 50.5)
+shape = SubResource("RectangleShape2D_e4mjj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=880059181]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://djngir2nloevi" path="res://Nodes/TestStuffi/darkCharacterController.gd" id="8_8w2go"]
 [ext_resource type="PackedScene" uid="uid://8bmoegbialjn" path="res://Nodes/TestStuffi/lightSwitchNode.tscn" id="8_kktmi"]
 [ext_resource type="PackedScene" uid="uid://dcudtifbtgker" path="res://Nodes/TestStuffi/sceneswapTriggerNode.tscn" id="9_e4mjj"]
+[ext_resource type="PackedScene" uid="uid://dcuosrrabl3t2" path="res://Nodes/TestStuffi/ghostUnlockTriggerNode.tscn" id="10_y00am"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1g2p"]
 size = Vector2(122, 121)
@@ -179,6 +180,9 @@ lights = [NodePath("../LightTrigger")]
 
 [node name="SceneSwapTrigger" parent="Ground" unique_id=1512196338 instance=ExtResource("9_e4mjj")]
 position = Vector2(-101, 127)
+
+[node name="GhostUnlockTrigger" parent="Ground" unique_id=46774252 instance=ExtResource("10_y00am")]
+position = Vector2(716, 189)
 
 [node name="Player" type="Node2D" parent="." unique_id=1497820935 node_paths=PackedStringArray("lightCharacter", "darkCharacter")]
 script = ExtResource("2_gckp2")
