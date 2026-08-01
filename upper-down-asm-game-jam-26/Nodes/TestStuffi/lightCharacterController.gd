@@ -9,6 +9,23 @@ extends CharacterBody2D
 @export var activeCharacter = true #Only change from inspector in level if wnat to start as ghost?
 @export var animated_sprite_2d: AnimatedSprite2D
 
+
+const footstep_a_sound = preload("res://Resources/Audio/SFX/footstep_a.ogg")
+const footstep_b_sound = preload("res://Resources/Audio/SFX/footstep_b.ogg")
+const jumpsound = preload("res://Resources/Audio/SFX/jump.ogg")
+
+func _ready() -> void:
+	animated_sprite_2d.frame_changed.connect(on_walk_frame_changed)
+
+var use_footstep_a := true
+
+func play_footstep():
+	if use_footstep_a:
+		AudioManager.play_sfx(footstep_a_sound)
+	else:
+		AudioManager.play_sfx(footstep_b_sound)
+	use_footstep_a = !use_footstep_a
+
 var currentInteractable: Area2D = null #Used for interacting / lightSwitch trigger detection
 
 
@@ -16,6 +33,7 @@ var currentInteractable: Area2D = null #Used for interacting / lightSwitch trigg
 func _jump():
 	if is_on_floor():
 		velocity.y = (-jump_force * jump_force) / gravity
+		AudioManager.play_sfx(jumpsound)
 
 # Swap if activeCharacter or not
 func _swap():
@@ -57,3 +75,11 @@ func _physics_process(delta):
 	
 	# Move character
 	move_and_slide()
+
+
+func on_walk_frame_changed():
+	if animated_sprite_2d.animation != "walk":
+		return
+	match animated_sprite_2d.frame:
+		1,3:
+			play_footstep()
