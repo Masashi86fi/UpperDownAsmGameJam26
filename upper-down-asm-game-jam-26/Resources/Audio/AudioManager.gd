@@ -1,6 +1,8 @@
 extends Node
 
 @onready var music = $MusicPlayer
+@onready var menu = $MenuFXPlayer
+@onready var SFX = $SFXPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +20,12 @@ func play_music(stream :AudioStream):
 	music.stream = stream
 	music.play()
 	
+
+func play_menu_FX(stream: AudioStream):
+	if menu.stream == stream:
+		return
+	menu.stream = stream
+	menu.play()
 
 func set_music_volume(percent: float):
 	var db = linear_to_db(percent);
