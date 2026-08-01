@@ -7,6 +7,8 @@ extends Node2D
 @export var ghostUnlocked = false #Exported for testing reasons
 var activeCharacter: CharacterBody2D
 
+
+
 func _ready():
 	activeCharacter = lightCharacter
 	
@@ -24,8 +26,8 @@ func _input(event):
 			lightCharacter._swap()
 			darkCharacter._swap()
 	if(Input.is_action_just_pressed("jump") and activeCharacter.is_on_floor()):
-		print("JUMP!")
 		activeCharacter._jump()
+		
 	if(Input.is_action_just_pressed("skipDialogue")):
 		Dialogue.hide_message()
 		

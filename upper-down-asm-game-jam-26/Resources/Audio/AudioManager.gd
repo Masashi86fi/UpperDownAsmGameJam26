@@ -27,6 +27,9 @@ func play_music(stream :AudioStream):
 	music_player.volume_db = DEFAULT_DB
 	music_player.play()
 	
+func play_sfx(stream: AudioStream):
+	sfx_player.stream = stream
+	sfx_player.play()
 
 func play_menu_FX(stream: AudioStream):
 	if menu_sfx_player.stream == stream:
