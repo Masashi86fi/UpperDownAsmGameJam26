@@ -12,4 +12,8 @@ script = ExtResource("1_6fh0a")
 position = Vector2(44, -4)
 shape = SubResource("CircleShape2D_3cjje")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=198098628]
+
+[node name="LightSprite" type="Sprite2D" parent="." unique_id=658863617]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
