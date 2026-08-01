@@ -1,0 +1,29 @@
+[gd_resource type="TileSet" format=3 uid="uid://ds2a678osvt7n"]
+
+[ext_resource type="Texture2D" uid="uid://dqe73h7dvjbqu" path="res://Resources/Graphics/bricks_32x32.png" id="1_j28vu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lranr"]
+texture = ExtResource("1_j28vu")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/z_index = 1
+1:0/0 = 0
+1:0/0/z_index = 1
+2:0/0 = 0
+2:0/0/z_index = 1
+0:1/0 = 0
+0:1/0/z_index = 1
+1:1/0 = 0
+1:1/0/z_index = 1
+2:1/0 = 0
+2:1/0/z_index = 1
+0:2/0 = 0
+0:2/0/z_index = 1
+1:2/0 = 0
+1:2/0/z_index = 1
+2:2/0 = 0
+2:2/0/z_index = 1
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/2 = SubResource("TileSetAtlasSource_lranr")

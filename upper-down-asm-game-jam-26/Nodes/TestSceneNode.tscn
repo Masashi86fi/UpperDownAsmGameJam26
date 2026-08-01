@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://bd42p7b5q2fgu" path="res://Nodes/TestStuffi/lightCharacterController.gd" id="2_0ephw"]
 [ext_resource type="Gradient" uid="uid://bdlakp2u6p30a" path="res://Resources/Graphics/reversed.tres" id="2_jjeup"]
 [ext_resource type="Texture2D" uid="uid://cy0xf3bfss2dk" path="res://Resources/Graphics/HumanVariant01.png" id="3_1ifys"]
-[ext_resource type="PackedScene" uid="uid://dqhlswp7xb4on" path="res://Resources/Graphics/room_demo.tscn" id="3_5axdg"]
 [ext_resource type="PackedScene" uid="uid://cuf1q7j1pa4bm" path="res://Nodes/UI/in_game_menu.tscn" id="4_jjeup"]
 [ext_resource type="PackedScene" uid="uid://diw1uymw3ul30" path="res://Nodes/TestStuffi/dialogueUICanvas.tscn" id="5_0ee0v"]
 [ext_resource type="Script" uid="uid://djngir2nloevi" path="res://Nodes/TestStuffi/darkCharacterController.gd" id="5_qm5pm"]
 [ext_resource type="Texture2D" uid="uid://dhaev7o8q24q0" path="res://Resources/Graphics/AngelTest.png" id="6_7mqth"]
+[ext_resource type="PackedScene" uid="uid://bp2v73wk4texd" path="res://Nodes/level_design.tscn" id="7_mwqab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqixm"]
 size = Vector2(13.799995, 15.6)
@@ -19,27 +19,10 @@ fill = 1
 fill_from = Vector2(0.52, 0.5)
 fill_to = Vector2(0.64, 0.96)
 
-[sub_resource type="Gradient" id="Gradient_fhjhh"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0.50751877, 1)
-colors = PackedColorArray(0.41674656, 0.4167466, 0.41674656, 1, 1, 1, 1, 0.011764706)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4ydp"]
-gradient = SubResource("Gradient_fhjhh")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.32, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6lpcg"]
-gradient = ExtResource("2_jjeup")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.32, 0)
-
 [node name="MainTest" type="Node2D" unique_id=587167177]
 
 [node name="Player" type="Node2D" parent="." unique_id=191039957 node_paths=PackedStringArray("lightCharacter", "darkCharacter")]
-z_index = 2
+z_index = 5
 position = Vector2(136, -16)
 script = ExtResource("1_mwqab")
 lightCharacter = NodePath("LightPlayer")
@@ -102,40 +85,7 @@ position = Vector2(48.000015, -47.99997)
 scale = Vector2(5, 5)
 zoom = Vector2(3, 3)
 
-[node name="LevelDesign" type="Node" parent="." unique_id=755895222]
-
-[node name="AboveWorld" type="Node2D" parent="LevelDesign" unique_id=1080072249]
-
-[node name="RoomDemo" parent="LevelDesign/AboveWorld" unique_id=1580834023 instance=ExtResource("3_5axdg")]
-visibility_layer = 2
-z_index = 1
-texture_filter = 1
-texture_repeat = 1
-
-[node name="BackGround" type="Node2D" parent="LevelDesign/AboveWorld" unique_id=1885226598]
-
-[node name="TileMapLayer" type="TileMapLayer" parent="LevelDesign/AboveWorld/BackGround" unique_id=1436978829]
-light_mask = 2
-visibility_layer = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="LevelDesign/AboveWorld/BackGround" unique_id=1784108925]
-modulate = Color(1, 1, 1, 0.54901963)
-scale = Vector2(64, 64)
-texture = SubResource("GradientTexture2D_g4ydp")
-
-[node name="PointLight2D" type="PointLight2D" parent="LevelDesign/AboveWorld/BackGround" unique_id=997553384]
-scale = Vector2(96, 97.363)
-energy = 2.0
-range_z_min = 0
-range_z_max = 0
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_6lpcg")
-
-[node name="CanvasModulate" type="CanvasModulate" parent="LevelDesign" unique_id=964681026]
-z_index = 1
-z_as_relative = false
-texture_filter = 1
-color = Color(0, 0, 0, 1)
+[node name="LevelDesign" parent="." unique_id=1620190401 instance=ExtResource("7_mwqab")]
 
 [node name="MenuCanvasLayer" type="CanvasLayer" parent="." unique_id=881887417]
 visible = false

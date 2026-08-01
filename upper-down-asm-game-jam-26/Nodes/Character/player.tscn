@@ -31,6 +31,7 @@ gravity = 920
 jump_force = 540
 
 [node name="LightSprite" type="Sprite2D" parent="LightPlayer" unique_id=1684322389]
+z_index = 2
 texture_filter = 1
 position = Vector2(0, -23)
 scale = Vector2(1.5, 1.5)
@@ -45,6 +46,8 @@ shape = SubResource("RectangleShape2D_mqixm")
 position = Vector2(0, -29.8)
 scale = Vector2(1.484375, 1.3125)
 color = Color(0.7921569, 0.8235294, 0.81960785, 1)
+range_z_min = 1
+range_z_max = 1
 texture = SubResource("GradientTexture2D_o70oy")
 
 [node name="DarkPlayer" type="CharacterBody2D" parent="." unique_id=1537752864]
@@ -70,6 +73,8 @@ position = Vector2(0, -8.125)
 rotation = 3.1415925
 scale = Vector2(1.4843749, 1.3124999)
 color = Color(0.45206752, 0.5534661, 0.7473163, 1)
+range_z_min = 4
+range_z_max = 5
 shadow_enabled = true
 shadow_filter_smooth = 4.7
 texture = SubResource("GradientTexture2D_o70oy")

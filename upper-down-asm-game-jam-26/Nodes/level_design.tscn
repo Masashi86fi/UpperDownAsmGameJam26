@@ -1,0 +1,76 @@
+[gd_scene format=4 uid="uid://bp2v73wk4texd"]
+
+[ext_resource type="Gradient" uid="uid://bdlakp2u6p30a" path="res://Resources/Graphics/reversed.tres" id="2_7384v"]
+[ext_resource type="TileSet" uid="uid://ds2a678osvt7n" path="res://Resources/Graphics/bgwalls.tres" id="2_xrlsa"]
+[ext_resource type="TileSet" uid="uid://bqp4vcbwefv0r" path="res://Resources/Graphics/room_walls.tres" id="3_m1qpb"]
+[ext_resource type="TileSet" uid="uid://csio0nxk8prp" path="res://Resources/Graphics/floors.tres" id="3_s8ub1"]
+
+[sub_resource type="Gradient" id="Gradient_fhjhh"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.50751877, 1)
+colors = PackedColorArray(0.41674656, 0.4167466, 0.41674656, 1, 1, 1, 1, 0.011764706)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4ydp"]
+gradient = SubResource("Gradient_fhjhh")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.32, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6lpcg"]
+gradient = ExtResource("2_7384v")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.32, 0)
+
+[node name="LevelDesign" type="Node" unique_id=1620190401]
+
+[node name="AboveWorld" type="Node2D" parent="." unique_id=9155915]
+
+[node name="Room" type="Node2D" parent="AboveWorld" unique_id=1580834023]
+visibility_layer = 2
+z_index = 1
+texture_filter = 1
+texture_repeat = 1
+
+[node name="CanvasGroup" type="CanvasGroup" parent="AboveWorld/Room" unique_id=2116386293]
+
+[node name="back_ground_tiles" type="TileMapLayer" parent="AboveWorld/Room/CanvasGroup" unique_id=659533207]
+z_index = 1
+tile_map_data = PackedByteArray("AAAAAP7/AgABAAEAAAAAAP//AgABAAIAAAABAP7/AgABAAEAAAABAP//AgABAAIAAAACAP7/AgABAAEAAAACAP//AgABAAIAAAADAP7/AgABAAEAAAADAP//AgABAAIAAAAEAP7/AgABAAEAAAAEAP//AgABAAIAAAAFAP7/AgABAAEAAAAFAP//AgABAAIAAAAGAP7/AgABAAEAAAAGAP//AgABAAIAAAAHAP7/AgABAAEAAAAHAP//AgABAAIAAAAAAPz/AgABAAEAAAAAAP3/AgABAAIAAAABAPz/AgABAAEAAAABAP3/AgABAAIAAAACAPz/AgABAAEAAAACAP3/AgABAAIAAAADAPz/AgABAAEAAAADAP3/AgABAAIAAAAEAPz/AgABAAEAAAAEAP3/AgABAAIAAAAFAPz/AgABAAEAAAAFAP3/AgABAAIAAAAGAPz/AgABAAEAAAAGAP3/AgABAAIAAAAHAPz/AgABAAEAAAAHAP3/AgABAAIAAAD/////AgAAAAIAAAD///7/AgAAAAIAAAD///3/AgAAAAIAAAD///z/AgAAAAIAAAD///v/AgAAAAAAAAAAAPv/AgABAAAAAAABAPv/AgABAAAAAAACAPv/AgABAAAAAAADAPv/AgABAAAAAAAEAPv/AgABAAAAAAAFAPv/AgABAAAAAAAGAPv/AgABAAAAAAAIAPv/AgACAAAAAAAHAPv/AgABAAAAAAAIAPz/AgACAAEAAAAIAP3/AgACAAEAAAAIAP7/AgACAAEAAAAIAP//AgACAAIAAAA=")
+tile_set = ExtResource("2_xrlsa")
+y_sort_origin = 1
+
+[node name="floor_tiles" type="TileMapLayer" parent="AboveWorld/Room/CanvasGroup" unique_id=616210031]
+z_index = 4
+tile_map_data = PackedByteArray("AAAAAP//AAAAAAEAAAABAP//AAAAAAEAAAACAP//AAAAAAEAAAADAP//AAAAAAEAAAAEAP//AAAAAAEAAAAFAP//AAAAAAEAAAAGAP//AAAAAAEAAAAHAP//AAAAAAEAAAD/////AAAAAAEAAAAIAP//AAAAAAEAAAAAAP3/AAAAAAEAAAABAP3/AAAAAAEAAAAFAP3/AAAAAAEAAAAGAP3/AAAAAAEAAAAEAPz/AAAAAAEAAAA=")
+tile_set = ExtResource("3_s8ub1")
+
+[node name="walls" type="TileMapLayer" parent="AboveWorld/Room/CanvasGroup" unique_id=810312718]
+tile_map_data = PackedByteArray("AAD+//z/AAABAAUAAAD+//v/AAAAAAYAAAD+//r/AAAAAAYAAAD///r/AAAAAAYAAAAAAPr/AAAAAAYAAAABAPr/AAAAAAYAAAACAPr/AAAAAAYAAAADAPr/AAAAAAYAAAAEAPr/AAAAAAYAAAAFAPr/AAAAAAYAAAAGAPr/AAAAAAYAAAAHAPr/AAAAAAYAAAAIAPr/AAAAAAYAAAAJAPr/AAAAAAYAAAAJAPv/AAABAAcAAAAJAPz/AAABAAcAAAAJAP3/AAAAAAUAAAA=")
+tile_set = ExtResource("3_m1qpb")
+
+[node name="BackGround" type="Node2D" parent="AboveWorld" unique_id=1637667266]
+visible = false
+
+[node name="TileMapLayer" type="TileMapLayer" parent="AboveWorld/BackGround" unique_id=46169935]
+light_mask = 2
+visibility_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="AboveWorld/BackGround" unique_id=1903000713]
+modulate = Color(1, 1, 1, 0.54901963)
+scale = Vector2(64, 64)
+texture = SubResource("GradientTexture2D_g4ydp")
+
+[node name="PointLight2D" type="PointLight2D" parent="AboveWorld/BackGround" unique_id=74290915]
+scale = Vector2(96, 97.363)
+energy = 2.0
+range_z_min = 0
+range_z_max = 0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6lpcg")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=833690176]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+color = Color(0.11119685, 0.11119685, 0.11119679, 1)
