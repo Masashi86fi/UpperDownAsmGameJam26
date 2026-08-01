@@ -2,6 +2,7 @@ extends Node2D
 
 @export var lightCharacter: CharacterBody2D
 @export var darkCharacter: CharacterBody2D
+@export var cameraOffset: Vector2
 @onready var playerCamera: Camera2D = $Camera2D
 var ghostUnlocked = false
 var activeCharacter: CharacterBody2D
@@ -29,5 +30,7 @@ func _input(event):
 		Dialogue.hide_message()
 		
 func _process(_delta):
-	playerCamera.global_position = activeCharacter.global_position
-	
+	if(activeCharacter == lightCharacter):
+		playerCamera.global_position = activeCharacter.global_position - cameraOffset
+	else:
+		playerCamera.global_position = activeCharacter.global_position + cameraOffset

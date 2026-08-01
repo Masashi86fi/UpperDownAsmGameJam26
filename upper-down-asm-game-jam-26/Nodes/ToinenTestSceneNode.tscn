@@ -188,6 +188,7 @@ position = Vector2(716, 189)
 script = ExtResource("2_gckp2")
 lightCharacter = NodePath("LightPlayer")
 darkCharacter = NodePath("DarkPlayer")
+cameraOffset = Vector2(0, 200)
 
 [node name="LightPlayer" type="CharacterBody2D" parent="Player" unique_id=2144826268]
 position = Vector2(480, 160)
