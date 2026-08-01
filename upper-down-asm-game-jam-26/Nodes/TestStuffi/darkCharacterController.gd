@@ -44,7 +44,7 @@ func _physics_process(delta):
 	
 	# Apply gravity
 	if !is_on_floor():
-		print(velocity.y)
+		#print(velocity.y)
 		if velocity.y > 0:
 			velocity.y -= gravity * delta
 		else:

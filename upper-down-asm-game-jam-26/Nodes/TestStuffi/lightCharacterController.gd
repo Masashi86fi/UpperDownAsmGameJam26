@@ -3,11 +3,14 @@ extends CharacterBody2D
 # All these can be edited via inspector
 @export var acceleration = 500 #LightPlayer x-speed
 @export var deceleration = 50 #LightPlayer x-deceleration speed
-@export var maxSpeed = 200 #IGNORE, dead variable
+@export var animDamper = 1.0 #IGNORE, dead variable
 @export var gravity = 100 #LightPlayer Gravity
 @export var jump_force = 200 #LightPlayer Jumpforce
 @export var activeCharacter = true #Only change from inspector in level if wnat to start as ghost?
+@export var animated_sprite_2d: AnimatedSprite2D
+
 var currentInteractable: Area2D = null #Used for interacting / lightSwitch trigger detection
+
 
 # JUmp light character
 func _jump():
@@ -34,8 +37,20 @@ func _physics_process(delta):
 		var direction = Input.get_axis("left", "right")
 		if direction:
 			velocity.x = direction * acceleration
+			
+			if direction <0:
+				animated_sprite_2d.flip_h =true
+				animated_sprite_2d.speed_scale = direction *animDamper
+				animated_sprite_2d.play("walk")
+			elif direction > 0:
+				animated_sprite_2d.flip_h =false
+				animated_sprite_2d.speed_scale = direction *animDamper
+				animated_sprite_2d.play("walk")
+			
+			 
 		else:
 			velocity.x = move_toward(velocity.x, 0, deceleration)
+			animated_sprite_2d.play("idle")
 	else:
 		if velocity.x != 0:
 			velocity.x = move_toward(velocity.x, 0, deceleration)

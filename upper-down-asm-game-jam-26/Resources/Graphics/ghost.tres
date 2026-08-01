@@ -1,16 +1,12 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://oahrtf552800"]
 
-[ext_resource type="Texture2D" uid="uid://b1iru42keg0wp" path="res://Resources/Graphics/GhostProto.png" id="1_ptfrp"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_47xtk"]
-atlas = ExtResource("1_ptfrp")
-region = Rect2(192, 96, 96, 96)
+[ext_resource type="Texture2D" uid="uid://bij1bj8vlfcrl" path="res://Resources/Graphics/ghost_char.png" id="1_ptfrp"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_47xtk")
+"texture": ExtResource("1_ptfrp")
 }],
 "loop": 1,
 "name": &"default",
