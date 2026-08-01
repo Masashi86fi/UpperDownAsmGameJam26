@@ -12,19 +12,22 @@ const CLICK = preload("res://Resources/Audio/SFX/menu/on_click.ogg")
 
 func _ready():
 	start_button.button_down.connect(on_start_pressed)
-	start_button.mouse_entered.connect(on_hover)
-	start_button.mouse_exited.connect(on_exit_hover)
-	start_button.button_down.connect(on_click)
+	prepare_sound_effects(start_button)
 	
 	exit_button.button_down.connect(on_exit_pressed)
-	exit_button.mouse_entered.connect(on_hover)
-	exit_button.mouse_exited.connect(on_exit_hover)
-	exit_button.button_down.connect(on_click)
+	prepare_sound_effects(exit_button)
 	AudioManager.play_music(MAIN_MENU_THEME)
 	
 func on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(start_level)
+	AudioManager.fade_out_music(5)
 	
+
+func prepare_sound_effects(button: Button):
+	button.mouse_entered.connect(on_hover)
+	button.mouse_exited.connect(on_exit_hover)
+	button.button_down.connect(on_click)
+
 func on_exit_pressed() -> void:
 	get_tree().quit()
 	
