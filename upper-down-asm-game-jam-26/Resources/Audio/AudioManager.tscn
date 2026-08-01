@@ -12,6 +12,12 @@ script = ExtResource("1_d71i2")
 stream = SubResource("AudioStreamMP3_d71i2")
 bus = &"Music"
 
-[node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=987870184]
+[node name="FootStepPlayer" type="AudioStreamPlayer" parent="." unique_id=987870184]
+max_polyphony = 4
+bus = &"SFX"
 
 [node name="MenuFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1471684089]
+max_polyphony = 2
+bus = &"SFX"
+
+[node name="JumpPlayer" type="AudioStreamPlayer" parent="." unique_id=1229963171]

@@ -21,9 +21,9 @@ var use_footstep_a := true
 
 func play_footstep():
 	if use_footstep_a:
-		AudioManager.play_sfx(footstep_a_sound)
+		AudioManager.play_footstep(footstep_a_sound)
 	else:
-		AudioManager.play_sfx(footstep_b_sound)
+		AudioManager.play_footstep(footstep_b_sound)
 	use_footstep_a = !use_footstep_a
 
 var currentInteractable: Area2D = null #Used for interacting / lightSwitch trigger detection
@@ -33,7 +33,7 @@ var currentInteractable: Area2D = null #Used for interacting / lightSwitch trigg
 func _jump():
 	if is_on_floor():
 		velocity.y = (-jump_force * jump_force) / gravity
-		AudioManager.play_sfx(jumpsound)
+		AudioManager.play_jump(jumpsound)
 
 # Swap if activeCharacter or not
 func _swap():
