@@ -49,6 +49,7 @@ size = Vector2(32, 92)
 [node name="LevelDesign" type="Node" unique_id=1620190401]
 
 [node name="UnderWorld" type="Node2D" parent="." unique_id=1548943776]
+modulate = Color(0.42, 0.42, 0.42, 1)
 position = Vector2(0, 100)
 scale = Vector2(1, -1)
 
@@ -185,7 +186,7 @@ tile_set = ExtResource("3_svge4")
 z_index = 1
 z_as_relative = false
 texture_filter = 1
-color = Color(0.32024425, 0.3202441, 0.32024413, 1)
+color = Color(0.87070966, 0.8707098, 0.87070966, 1)
 
 [connection signal="body_entered" from="UnderWorld/AboveWorld/Interactables/KeyholeTrigger" to="UnderWorld/AboveWorld/Interactables/KeyholeTrigger" method="_on_body_entered"]
 [connection signal="body_entered" from="UnderWorld/AboveWorld/Interactables/PickupItem_Area2D" to="UnderWorld/AboveWorld/Interactables/PickupItem_Area2D" method="_on_body_entered"]

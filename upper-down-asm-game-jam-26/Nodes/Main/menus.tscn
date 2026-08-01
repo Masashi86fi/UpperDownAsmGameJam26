@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxeu7ej47gg55" path="res://Nodes/UI/main_menu.gd" id="1_xlvhu"]
 [ext_resource type="Texture2D" uid="uid://cr78vvns57p4a" path="res://Resources/Graphics/player_char_sprite.png" id="2_7tw1r"]
+[ext_resource type="Texture2D" uid="uid://b2m78ah303yv2" path="res://Resources/Graphics/stoneWall.png" id="3_7tw1r"]
 
 [sub_resource type="Gradient" id="Gradient_xext3"]
 colors = PackedColorArray(0.032967977, 0.032967992, 0.03296798, 1, 0.080783345, 0.080783345, 0.080783345, 1)
@@ -37,6 +38,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_gv2ii")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MainMenu/BGRect" unique_id=43993174]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -324.0
+offset_right = 672.0
+offset_bottom = 696.704
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7tw1r")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/MainMenu/BGRect" unique_id=579210077]
 layout_mode = 1
