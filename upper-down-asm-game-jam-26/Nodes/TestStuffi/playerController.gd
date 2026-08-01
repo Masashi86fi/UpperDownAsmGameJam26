@@ -1,5 +1,5 @@
 extends Node2D
-
+# Honestly..... don't touch this stuff?
 @export var lightCharacter: CharacterBody2D
 @export var darkCharacter: CharacterBody2D
 @export var cameraOffset: Vector2

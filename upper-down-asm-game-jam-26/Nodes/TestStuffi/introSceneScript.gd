@@ -1,7 +1,7 @@
 extends Node
 
-@export var sceneRoute: PackedScene
-@export var dialogue = [
+@export var sceneRoute: PackedScene #Next scene/level to load
+@export var dialogue = [ #Check dialogueTrigger for notes
 	{
 		"text": "Imma be honest you...",
 		"speed": 0.03,
@@ -14,7 +14,7 @@ extends Node
 	}
 ]
 
-# Called when the node enters the scene tree for the first time.
+# Runs at start of intro scene/level; basically the content of the intro, add whatever needed
 func _ready():
 	await get_tree().create_timer(2.0).timeout
 	await Dialogue.show_dialogue(dialogue)

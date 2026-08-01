@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+# LEFTOVER Script; when both characters used same script
 @export var acceleration = 1000
 @export var deceleration = 1500
 @export var turnAcceleration = 2500

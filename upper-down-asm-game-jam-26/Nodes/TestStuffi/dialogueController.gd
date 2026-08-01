@@ -1,5 +1,5 @@
 extends CanvasLayer
-
+# Honestly maybe don't touch this?
 @onready var label = $Control/PanelLabel/MarginContainer/DialogueLabel
 @onready var panel = $Control/PanelLabel
 @onready var audio = $Control/AudioStreamPlayer2D
