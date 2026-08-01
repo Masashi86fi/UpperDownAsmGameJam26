@@ -1,89 +1,16 @@
 [gd_scene format=3 uid="uid://0vtw8ertsoxb"]
 
-[ext_resource type="Script" uid="uid://do0d5ec5xh75r" path="res://Nodes/TestStuffi/playerController.gd" id="1_mwqab"]
-[ext_resource type="Script" uid="uid://bd42p7b5q2fgu" path="res://Nodes/TestStuffi/lightCharacterController.gd" id="2_0ephw"]
-[ext_resource type="Gradient" uid="uid://bdlakp2u6p30a" path="res://Resources/Graphics/reversed.tres" id="2_jjeup"]
-[ext_resource type="Texture2D" uid="uid://cy0xf3bfss2dk" path="res://Resources/Graphics/HumanVariant01.png" id="3_1ifys"]
+[ext_resource type="PackedScene" uid="uid://rjon7o6cr0k7" path="res://Nodes/Character/player.tscn" id="4_5axdg"]
 [ext_resource type="PackedScene" uid="uid://cuf1q7j1pa4bm" path="res://Nodes/UI/in_game_menu.tscn" id="4_jjeup"]
 [ext_resource type="PackedScene" uid="uid://diw1uymw3ul30" path="res://Nodes/TestStuffi/dialogueUICanvas.tscn" id="5_0ee0v"]
-[ext_resource type="Script" uid="uid://djngir2nloevi" path="res://Nodes/TestStuffi/darkCharacterController.gd" id="5_qm5pm"]
-[ext_resource type="Texture2D" uid="uid://dhaev7o8q24q0" path="res://Resources/Graphics/AngelTest.png" id="6_7mqth"]
 [ext_resource type="PackedScene" uid="uid://bp2v73wk4texd" path="res://Nodes/level_design.tscn" id="7_mwqab"]
+[ext_resource type="Script" uid="uid://c48pdewcxi36c" path="res://Nodes/TestStuffi/unlockGhostTrigger.gd" id="10_1ifys"]
+[ext_resource type="Texture2D" uid="uid://digth438efsft" path="res://Resources/Graphics/testMarioBlockGround.png" id="11_qm5pm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqixm"]
-size = Vector2(13.799995, 15.6)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_o70oy"]
-gradient = ExtResource("2_jjeup")
-fill = 1
-fill_from = Vector2(0.52, 0.5)
-fill_to = Vector2(0.64, 0.96)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4mjj"]
+size = Vector2(158, 121)
 
 [node name="MainTest" type="Node2D" unique_id=587167177]
-
-[node name="Player" type="Node2D" parent="." unique_id=191039957 node_paths=PackedStringArray("lightCharacter", "darkCharacter")]
-z_index = 5
-position = Vector2(136, -16)
-script = ExtResource("1_mwqab")
-lightCharacter = NodePath("LightPlayer")
-darkCharacter = NodePath("DarkPlayer")
-
-[node name="LightPlayer" type="CharacterBody2D" parent="Player" unique_id=1462959315]
-position = Vector2(0, -8)
-script = ExtResource("2_0ephw")
-acceleration = 100
-deceleration = 1000
-maxSpeed = 180
-jump_force = 100
-
-[node name="LightSprite" type="Sprite2D" parent="Player/LightPlayer" unique_id=1684322389]
-texture_filter = 1
-position = Vector2(0, -23)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_1ifys")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/LightPlayer" unique_id=1962381053]
-position = Vector2(0, -6)
-scale = Vector2(0.99999976, 0.99999976)
-shape = SubResource("RectangleShape2D_mqixm")
-
-[node name="PointLight2D" type="PointLight2D" parent="Player/LightPlayer" unique_id=1254722859]
-position = Vector2(0, -29.8)
-scale = Vector2(1.484375, 1.3125)
-color = Color(0.7921569, 0.8235294, 0.81960785, 1)
-texture = SubResource("GradientTexture2D_o70oy")
-
-[node name="DarkPlayer" type="CharacterBody2D" parent="Player" unique_id=1537752864]
-texture_filter = 1
-position = Vector2(7, 574)
-rotation = 3.1415927
-script = ExtResource("5_qm5pm")
-
-[node name="DarkSprite" type="Sprite2D" parent="Player/DarkPlayer" unique_id=1106344889]
-position = Vector2(0, -10)
-texture = ExtResource("6_7mqth")
-
-[node name="CurrentItem" type="Sprite2D" parent="Player/DarkPlayer/DarkSprite" unique_id=747600886]
-position = Vector2(-12.4, 3.000001)
-scale = Vector2(0.01, 0.01)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/DarkPlayer" unique_id=326632727]
-shape = SubResource("RectangleShape2D_mqixm")
-
-[node name="PointLight2D2" type="PointLight2D" parent="Player/DarkPlayer" unique_id=1249737409]
-position = Vector2(0, -8.125)
-rotation = 3.1415925
-scale = Vector2(1.4843749, 1.3124999)
-color = Color(0.45206752, 0.5534661, 0.7473163, 1)
-shadow_enabled = true
-shadow_filter_smooth = 4.7
-texture = SubResource("GradientTexture2D_o70oy")
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=555690143]
-texture_filter = 1
-position = Vector2(48.000015, -47.99997)
-scale = Vector2(5, 5)
-zoom = Vector2(3, 3)
 
 [node name="LevelDesign" parent="." unique_id=1620190401 instance=ExtResource("7_mwqab")]
 
@@ -96,3 +23,21 @@ size_flags_vertical = 3
 script = null
 
 [node name="DialogueLayer" parent="." unique_id=557505117 instance=ExtResource("5_0ee0v")]
+
+[node name="Player" parent="." unique_id=1525041752 instance=ExtResource("4_5axdg")]
+position = Vector2(40, -24)
+
+[node name="GhostUnlockTrigger" type="Area2D" parent="." unique_id=46774252]
+z_index = 4
+position = Vector2(208, -40)
+script = ExtResource("10_1ifys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GhostUnlockTrigger" unique_id=1667446901]
+scale = Vector2(0.2, 0.2)
+shape = SubResource("RectangleShape2D_e4mjj")
+
+[node name="Sprite2D" type="Sprite2D" parent="GhostUnlockTrigger" unique_id=880059181]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("11_qm5pm")
+
+[connection signal="body_entered" from="GhostUnlockTrigger" to="GhostUnlockTrigger" method="_on_body_entered"]

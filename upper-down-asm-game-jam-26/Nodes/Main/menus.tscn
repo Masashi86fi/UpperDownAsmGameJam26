@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://dwwsqkbhhnn6"]
+
+[ext_resource type="Script" uid="uid://dxeu7ej47gg55" path="res://Nodes/UI/main_menu.gd" id="1_xlvhu"]
+[ext_resource type="Texture2D" uid="uid://cr78vvns57p4a" path="res://Resources/Graphics/player_char_sprite.png" id="2_7tw1r"]
+
+[sub_resource type="Gradient" id="Gradient_xext3"]
+colors = PackedColorArray(0.032967977, 0.032967992, 0.03296798, 1, 0.080783345, 0.080783345, 0.080783345, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gv2ii"]
+gradient = SubResource("Gradient_xext3")
+
+[sub_resource type="SystemFont" id="SystemFont_6lpcg"]
+font_names = PackedStringArray("Living Hell")
+
+[sub_resource type="SystemFont" id="SystemFont_g4ydp"]
+font_names = PackedStringArray("Impact")
+
+[node name="Menus" type="Node2D" unique_id=1748090453]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=838951402]
+
+[node name="MainMenu" type="Control" parent="CanvasLayer" unique_id=1228632281]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xlvhu")
+
+[node name="BGRect" type="TextureRect" parent="CanvasLayer/MainMenu" unique_id=1133284652]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_gv2ii")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MainMenu/BGRect" unique_id=579210077]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 135.0
+offset_top = -153.0
+offset_right = 441.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7tw1r")
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu" unique_id=207691783]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer" unique_id=862988671]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Control" type="Control" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer" unique_id=392458928]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer" unique_id=1159724077]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 456
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = SubResource("SystemFont_6lpcg")
+theme_override_font_sizes/font_size = 128
+text = "Upper Down"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer" unique_id=1114642848]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer/HBoxContainer" unique_id=1531323374]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="StartButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/HBoxContainer/VBoxContainer" unique_id=864829717]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.083322085, 5.896017e-06, 0.39399457, 1)
+theme_override_colors/font_pressed_color = Color(0.003068191, 0.14230815, 0.6638987, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = SubResource("SystemFont_g4ydp")
+theme_override_font_sizes/font_size = 64
+text = "Start"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/HBoxContainer/VBoxContainer" unique_id=752441168]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.083322085, 5.896017e-06, 0.39399457, 1)
+theme_override_colors/font_pressed_color = Color(0.003068191, 0.14230815, 0.6638987, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = SubResource("SystemFont_g4ydp")
+theme_override_font_sizes/font_size = 64
+text = "Exit"
