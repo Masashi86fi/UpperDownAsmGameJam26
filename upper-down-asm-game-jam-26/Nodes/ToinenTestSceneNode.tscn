@@ -194,8 +194,8 @@ cameraOffset = Vector2(0, 200)
 position = Vector2(480, 301.383)
 scale = Vector2(5, 5)
 script = ExtResource("6_8w2go")
-jumpHeightPixels = 32.0
-jumpFallTime = 1.0
+jumpHeightPixels = 200.0
+jumpPeakTime = 1.4
 
 [node name="LightSprite" type="Sprite2D" parent="Player/LightPlayer" unique_id=1966061110]
 position = Vector2(10, -10)
