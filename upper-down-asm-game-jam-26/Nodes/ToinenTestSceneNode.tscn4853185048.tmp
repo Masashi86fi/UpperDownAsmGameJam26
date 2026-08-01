@@ -12,10 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://bu7cmvvdhv22m" path="res://Nodes/TestStuffi/lightTriggerNode.tscn" id="6_ydtrf"]
 [ext_resource type="Script" uid="uid://djngir2nloevi" path="res://Nodes/TestStuffi/darkCharacterController.gd" id="8_8w2go"]
 [ext_resource type="PackedScene" uid="uid://8bmoegbialjn" path="res://Nodes/TestStuffi/lightSwitchNode.tscn" id="8_kktmi"]
-[ext_resource type="PackedScene" uid="uid://dcudtifbtgker" path="res://Nodes/TestStuffi/sceneswapTriggerNode.tscn" id="9_e4mjj"]
+[ext_resource type="Script" uid="uid://b4iw76rh4e6o1" path="res://Nodes/TestStuffi/sceneSwapTrigger.gd" id="9_y00am"]
+[ext_resource type="PackedScene" uid="uid://dxvmjtl6ov83c" path="res://Nodes/UI/main_menu.tscn" id="10_hqpb3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1g2p"]
 size = Vector2(122, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g34su"]
+size = Vector2(94, 117)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqixm"]
 size = Vector2(28, 27)
@@ -174,11 +178,17 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_t1g2p")
 
 [node name="LightSwitchTrigger" parent="Ground" unique_id=302541927 node_paths=PackedStringArray("lights") instance=ExtResource("8_kktmi")]
-position = Vector2(347, 208)
+position = Vector2(-110, -39)
 lights = [NodePath("../LightTrigger")]
 
-[node name="SceneSwapTrigger" parent="Ground" unique_id=1512196338 instance=ExtResource("9_e4mjj")]
-position = Vector2(-101, 127)
+[node name="SceneSwapTrigger" type="Area2D" parent="Ground" unique_id=1553470855]
+position = Vector2(303, 212)
+script = ExtResource("9_y00am")
+sceneRoute = ExtResource("10_hqpb3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/SceneSwapTrigger" unique_id=243658182]
+position = Vector2(44, 41)
+shape = SubResource("RectangleShape2D_g34su")
 
 [node name="Player" type="Node2D" parent="." unique_id=1497820935 node_paths=PackedStringArray("lightCharacter", "darkCharacter")]
 script = ExtResource("2_gckp2")
@@ -220,3 +230,5 @@ shape = SubResource("RectangleShape2D_mqixm")
 position = Vector2(225, 133)
 scale = Vector2(5, 5)
 zoom = Vector2(0.5, 0.5)
+
+[connection signal="body_entered" from="Ground/SceneSwapTrigger" to="Ground/SceneSwapTrigger" method="_on_body_entered"]
