@@ -100,7 +100,7 @@ theme_override_constants/shadow_offset_y = 456
 theme_override_constants/outline_size = 16
 theme_override_fonts/font = SubResource("SystemFont_6lpcg")
 theme_override_font_sizes/font_size = 128
-text = "Upper Down"
+text = "My sister Annie"
 horizontal_alignment = 1
 vertical_alignment = 1
 
