@@ -18,6 +18,8 @@ fill = 1
 fill_from = Vector2(0.52, 0.5)
 fill_to = Vector2(0.64, 0.96)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o70oy"]
+
 [node name="Player" type="Node2D" unique_id=1525041752 node_paths=PackedStringArray("lightCharacter", "darkCharacter")]
 z_index = 5
 texture_filter = 1
@@ -62,17 +64,23 @@ range_z_min = 5
 range_z_max = 5
 texture = SubResource("GradientTexture2D_o70oy")
 
-[node name="DarkPlayer" type="CharacterBody2D" parent="." unique_id=1906006494]
+[node name="DarkPlayer" type="CharacterBody2D" parent="." unique_id=1906006494 node_paths=PackedStringArray("animated_sprite_2d")]
 z_index = 5
 texture_filter = 1
-position = Vector2(0, 190)
+position = Vector2(0, 200)
 rotation = 3.1415927
 script = ExtResource("4_3haui")
 acceleration = 100
-deceleration = 75
-jumpHeightPixels = 96.0
-jumpPeakTime = 0.75
-jumpFallTime = 1.0
+deceleration = 200
+jumpHeightPixels = 64.0
+jumpPeakTime = 0.8
+jumpFallTime = 1.6
+animated_sprite_2d = NodePath("DarkSprite/AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DarkPlayer" unique_id=1279881136]
+position = Vector2(0, 10.550003)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_o70oy")
 
 [node name="DarkSprite" type="Sprite2D" parent="DarkPlayer" unique_id=1922554041]
 self_modulate = Color(1, 1, 1, 0)
@@ -86,10 +94,7 @@ scale = Vector2(0.01, 0.01)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DarkPlayer/DarkSprite" unique_id=277944893]
 position = Vector2(0, 10)
 sprite_frames = ExtResource("7_3haui")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DarkPlayer" unique_id=1279881136]
-position = Vector2(0, 10.550003)
-shape = SubResource("RectangleShape2D_mqixm")
+animation = &"idle"
 
 [node name="PointLight2D2" type="PointLight2D" parent="DarkPlayer" unique_id=1850207182]
 position = Vector2(0, -8.125)

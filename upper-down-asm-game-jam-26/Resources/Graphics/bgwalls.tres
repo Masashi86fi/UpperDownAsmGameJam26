@@ -1,6 +1,14 @@
 [gd_resource type="TileSet" format=3 uid="uid://ds2a678osvt7n"]
 
 [ext_resource type="Texture2D" uid="uid://dqe73h7dvjbqu" path="res://Resources/Graphics/bricks_32x32.png" id="1_j28vu"]
+[ext_resource type="Texture2D" uid="uid://b8y06i1xpolev" path="res://Resources/Graphics/wood_tiles_32x32.png" id="1_lranr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n3fuy"]
+texture = ExtResource("1_lranr")
+margins = Vector2i(16, 0)
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lranr"]
 texture = ExtResource("1_j28vu")
@@ -27,3 +35,4 @@ texture_region_size = Vector2i(32, 32)
 [resource]
 tile_size = Vector2i(32, 32)
 sources/2 = SubResource("TileSetAtlasSource_lranr")
+sources/0 = SubResource("TileSetAtlasSource_n3fuy")

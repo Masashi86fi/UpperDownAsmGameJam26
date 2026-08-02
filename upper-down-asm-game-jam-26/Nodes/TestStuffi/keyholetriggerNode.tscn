@@ -1,16 +1,38 @@
 [gd_scene format=3 uid="uid://bdxqmk3ggqmtf"]
 
 [ext_resource type="Script" uid="uid://ca10mo6mumqrx" path="res://Nodes/TestStuffi/keyholeTrigger.gd" id="1_ob2ji"]
+[ext_resource type="Texture2D" uid="uid://dkkribiuh2mc3" path="res://Resources/Graphics/GroundMidGray.png" id="2_c6ghe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfahj"]
-size = Vector2(130, 128)
+size = Vector2(32, 32)
 
-[node name="KeyholeTrigger" type="Area2D" unique_id=1728277272 node_paths=PackedStringArray("doorReference")]
+[sub_resource type="Gradient" id="Gradient_c6ghe"]
+offsets = PackedFloat32Array(0, 0.78571427)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6lpcg"]
+gradient = SubResource("Gradient_c6ghe")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.6, 0)
+
+[node name="KeyholeTrigger" type="Area2D" unique_id=1728277272]
 script = ExtResource("1_ob2ji")
-doorReference = NodePath("")
 itemRequired = "Key"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=837753963]
+position = Vector2(16, -16)
 shape = SubResource("RectangleShape2D_xfahj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=343063912]
+position = Vector2(16, -16)
+texture = ExtResource("2_c6ghe")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1323117266]
+position = Vector2(16, -16)
+color = Color(0.054911137, 0.50113255, 0.5840809, 1)
+energy = 5.2
+range_z_min = 1
+texture = SubResource("GradientTexture2D_6lpcg")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

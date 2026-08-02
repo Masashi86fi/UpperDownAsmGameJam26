@@ -1,6 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://bqp4vcbwefv0r"]
 
 [ext_resource type="Texture2D" uid="uid://wah54sus4q1r" path="res://Resources/Graphics/TilemapProto.png" id="1_f8n0v"]
+[ext_resource type="Texture2D" uid="uid://cco32rnaq0um4" path="res://Resources/Graphics/brickwall.png" id="2_ny6qc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ny6qc"]
 texture = ExtResource("1_f8n0v")
@@ -31,7 +32,18 @@ texture_region_size = Vector2i(32, 32)
 1:7/0 = 0
 1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -3.8554306, -16, -4.163864, 16, -16, 16)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw07l"]
+texture = ExtResource("2_ny6qc")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ny6qc")
+sources/1 = SubResource("TileSetAtlasSource_rw07l")

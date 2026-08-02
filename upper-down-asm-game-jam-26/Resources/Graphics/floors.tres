@@ -1,6 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://csio0nxk8prp"]
 
 [ext_resource type="Texture2D" uid="uid://b8y06i1xpolev" path="res://Resources/Graphics/wood_tiles_32x32.png" id="1_iwj1n"]
+[ext_resource type="Texture2D" uid="uid://ce1rjjqsvlw5e" path="res://Resources/Graphics/mansion_door_tiles.png" id="2_qfsey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfsey"]
 texture = ExtResource("1_iwj1n")
@@ -11,7 +12,24 @@ texture_region_size = Vector2i(32, 32)
 0:1/0/physics_layer_0/polygon_0/one_way = true
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mhhrj"]
+texture = ExtResource("2_qfsey")
+margins = Vector2i(27, 0)
+texture_region_size = Vector2i(32, 32)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -1.3879547, 16, -2.6216927, 16, 16, -16, 16)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -1.3879547, 16, -2.6216927, 16, 16, -16, 16)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -1.3879547, 16, -2.6216927, 16, 16, -16, 16)
+5:1/0 = 0
+6:1/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+6:3/0 = 0
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qfsey")
+sources/2 = SubResource("TileSetAtlasSource_mhhrj")

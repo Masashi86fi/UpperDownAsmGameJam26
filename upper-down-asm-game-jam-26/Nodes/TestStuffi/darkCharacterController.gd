@@ -6,12 +6,17 @@ extends CharacterBody2D
 @export var jumpHeightPixels: float = 20.0 #LightPlayer jump height
 @export var jumpPeakTime: float = 0.5 #DarkPlayer time to reach jump height peak
 @export var jumpFallTime: float = 0.5 #DarkPlayer time to fall back to starting y.height
+@export var animDamper = 1.0
+
 var gravity: float #Gravity for when jumping
 var fallGravity: float #Gravity after reaching jumpHeight
 var jumpForce: float #Calculated jumpforce
+@export var animated_sprite_2d: AnimatedSprite2D
 @export var activeCharacter = false #Only change from inspector in level if wnat to start as ghost?
 @onready var itemSprite = $DarkSprite/CurrentItem #Current carried item sprite reference
 var currentItem: String #Current item carried (we use names in code, simple)
+
+
 
 # Calculate gravities+jumpForce to reach jump peak and fall times mathematically
 func _ready():
@@ -50,23 +55,25 @@ func _physics_process(delta):
 		else:
 			velocity.y -= fallGravity * delta
 			
-	#if !is_on_floor():
-	#	velocity.y += gravity * delta * -1
-		
-	# X-axis movement
+
 	if activeCharacter:
 		var direction = Input.get_axis("left", "right")
 		if direction:
 			velocity.x = direction * acceleration
+			if direction <0:
+				animated_sprite_2d.flip_h =false
+				animated_sprite_2d.speed_scale = direction *animDamper
+				animated_sprite_2d.play("idle")
+			elif direction > 0:
+				animated_sprite_2d.flip_h =true
+				animated_sprite_2d.speed_scale = direction *animDamper
+				animated_sprite_2d.play("idle")
 		else:
 			velocity.x = move_toward(velocity.x, 0, deceleration)
 	else:
 		if velocity.x != 0:
 			velocity.x = move_toward(velocity.x, 0, deceleration)
-	
-	#if activeCharacter:
-	#	var direction = Input.get_axis("Left", "Right")
-	#	velocity.x = direction * acceleration
+
 
 	# Move character
 	move_and_slide()

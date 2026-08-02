@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var lights: Array[LightSource] # Reference to lights that switch toggles
+@export var lights: Array[PointLight2D] # Reference to lights that switch toggles
 
 # Lets LightPlayer know they can interact with switch+UI
 func _on_body_entered(body):
@@ -20,4 +20,7 @@ func _on_body_exited(body):
 func interact():
 	print("TURNING ON ", lights.size(), "x LIGHTS!")
 	for light in lights:
-		light._toggleLight()
+		if !light.enabled:
+			light.enabled = true
+		else:
+			light.enabled = false

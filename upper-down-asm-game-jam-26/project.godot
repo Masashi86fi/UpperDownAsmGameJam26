@@ -10,13 +10,13 @@ config_version=5
 
 [application]
 
-config/name="UpperDown ASM Game Jam 26"
+config/name="My Sister Annie"
 run/main_scene="uid://dwwsqkbhhnn6"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0.14044753, 0.14044744, 0.14044738, 1)
 boot_splash/use_filter=false
 boot_splash/image="uid://cr78vvns57p4a"
-config/icon="res://icon.svg"
+config/icon="uid://dksqqavuqs8wc"
 
 [audio]
 
