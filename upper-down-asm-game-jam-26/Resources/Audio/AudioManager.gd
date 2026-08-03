@@ -2,7 +2,8 @@ extends Node
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var menu_sfx_player : AudioStreamPlayer = $MenuFXPlayer
-@onready var sfx_player : AudioStreamPlayer = $SFXPlayer
+@onready var footstep_player : AudioStreamPlayer = $FootStepPlayer
+@onready var jump_player : AudioStreamPlayer = $JumpPlayer
 
 var music_tween : Tween
 
@@ -27,9 +28,16 @@ func play_music(stream :AudioStream):
 	music_player.volume_db = DEFAULT_DB
 	music_player.play()
 	
-func play_sfx(stream: AudioStream):
-	sfx_player.stream = stream
-	sfx_player.play()
+func play_footstep(stream: AudioStream):
+	footstep_player.stream = stream
+	footstep_player.play()
+	
+
+	
+	
+func play_jump(stream: AudioStream):
+	jump_player.stream = stream
+	jump_player.play()
 
 func play_menu_FX(stream: AudioStream):
 	if menu_sfx_player.stream == stream:
