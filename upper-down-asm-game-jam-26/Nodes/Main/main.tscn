@@ -11,6 +11,6 @@
 [node name="AudioManager" parent="." unique_id=16757329 instance=ExtResource("7_pfbw7")]
 
 [node name="Player" parent="." unique_id=191039957 instance=ExtResource("5_pgvy0")]
-position = Vector2(32, -32)
+position = Vector2(-56, -32)
 
 [node name="LevelDesign" parent="." unique_id=1620190401 instance=ExtResource("3_qjs8y")]

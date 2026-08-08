@@ -4,22 +4,42 @@
 [ext_resource type="Texture2D" uid="uid://digth438efsft" path="res://Resources/Graphics/testMarioBlockGround.png" id="2_138ii"]
 [ext_resource type="AudioStream" uid="uid://1ceuce2q6kga" path="res://Resources/Audio/voice_sans.mp3" id="2_xht10"]
 
+[sub_resource type="FontFile" id="FontFile_ai308"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_rl28g"]
+default_font = SubResource("FontFile_ai308")
+
 [node name="CanvasLayer" type="CanvasLayer" unique_id=557505117]
 script = ExtResource("1_e00dj")
 
 [node name="Control" type="Control" parent="." unique_id=483064090]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PanelLabel" type="Panel" parent="Control" unique_id=1388503824]
-visible = false
 layout_mode = 0
 offset_left = 330.0
 offset_top = 22.0
 offset_right = 638.0
 offset_bottom = 194.0
+theme = SubResource("Theme_rl28g")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/PanelLabel" unique_id=476976999]
 layout_mode = 0

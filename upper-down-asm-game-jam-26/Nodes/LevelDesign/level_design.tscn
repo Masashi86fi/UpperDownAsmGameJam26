@@ -424,6 +424,7 @@ texture = SubResource("GradientTexture2D_gil0c")
 z_index = 2
 position = Vector2(0, -64)
 collision_layer = 2
+priority = 5
 script = ExtResource("12_ai308")
 dialogue = [{
 "delay": 1.6,
@@ -452,6 +453,7 @@ shape = SubResource("RectangleShape2D_gckp2")
 z_index = 2
 position = Vector2(256, -64)
 collision_layer = 2
+priority = 4
 script = ExtResource("12_ai308")
 dialogue = [{
 "delay": 1.6,
@@ -464,8 +466,9 @@ shape = SubResource("RectangleShape2D_gckp2")
 
 [node name="DialogueTrigger2" type="Area2D" parent="AboveWorld/Interactables" unique_id=1059472675]
 z_index = 2
-position = Vector2(192, -64)
+position = Vector2(184, -64)
 collision_layer = 2
+priority = 4
 script = ExtResource("12_ai308")
 dialogue = [{
 "delay": 1.6,

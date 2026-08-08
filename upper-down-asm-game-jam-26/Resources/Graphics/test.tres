@@ -1,0 +1,13 @@
+[gd_resource type="Theme" format=3 uid="uid://cgb3mh1dvnmcy"]
+
+[ext_resource type="Texture2D" uid="uid://c5yotr2r82kh0" path="res://Resources/Graphics/AreaTileBricksDarkBlue02.png" id="1_ykec6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pn6pd"]
+texture = ExtResource("1_ykec6")
+expand_margin_top = 96.0
+expand_margin_bottom = 96.0
+region_rect = Rect2(4, 5, 23, 22)
+
+[resource]
+default_font_size = 16
+Panel/styles/panel = SubResource("StyleBoxTexture_pn6pd")
